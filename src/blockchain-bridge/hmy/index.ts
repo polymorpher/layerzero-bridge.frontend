@@ -13,8 +13,8 @@ import { HmyMethodsHRC1155 } from './HmyMethodsHRC1155';
 import { HmyMethodsHRC1155Web3 } from './HmyMethodsHRC1155Web3';
 import { HmyMethodsERC1155 } from './HmyMethodsERC1155';
 import { HmyMethodsERC1155Web3 } from './HmyMethodsERC1155Web3';
-const { Harmony } = require('@harmony-js/core');
-const { ChainType } = require('@harmony-js/utils');
+import { Harmony } from '@harmony-js/core';
+import { ChainType } from '@harmony-js/utils';
 
 export const hmy = new Harmony(
   // let's assume we deploy smart contract to this end-point URL

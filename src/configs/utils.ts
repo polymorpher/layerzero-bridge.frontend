@@ -1,8 +1,8 @@
-import { NETWORK_TYPE, TOKEN } from "stores/interfaces";
+import { NETWORK_TYPE, TOKEN } from "@/stores/interfaces";
 import { tokensConfigs } from "./tokens";
 import { networks } from "./networks";
-import stores from "stores";
-import { ITokenInfo } from "stores/interfaces";
+import stores from "@/stores";
+import { ITokenInfo } from "@/stores/interfaces";
 
 export const numberToHex = (value: number): string => {
     return '0x' + value.toString(16);

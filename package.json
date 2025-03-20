@@ -1,19 +1,13 @@
 {
-  "name": "ethhmy-bridge.frontend",
-  "version": "0.0.2",
+  "name": "layerzero-bridge.frontend.vite",
   "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "start": "cross-env NODE_ENV=development webpack serve --config config/webpack.config.js",
-    "dev": "cross-env MODE=development NODE_ENV=mainnet webpack serve --config config/webpack.config.js --progress --color --open",
-    "build": "node scripts/build.js --stats",
-    "test": "jest --verbose",
-    "test:watch": "jest --watch",
-    "test:debug": "jest --config=jest.config.debug.js",
-    "version": "echo $npm_package_version"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/harmony-one/ethhmy-bridge.frontend"
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
@@ -54,116 +48,18 @@
     "web3": "^4.16.0"
   },
   "devDependencies": {
-    "@types/jest": "^29.5.14",
-    "@types/lodash": "^4.17.16",
-    "@types/react": "^18.0.10",
-    "@types/react-dom": "^18.0.4",
-    "@types/react-outside-click-handler": "^1.3.4",
-    "@types/react-router-dom": "^5.3.3",
-    "@types/styled-components": "^5.1.34",
-    "@typescript-eslint/eslint-plugin": "^8.26.1",
-    "@typescript-eslint/parser": "^8.26.1",
-    "clean-webpack-plugin": "^4.0.0",
-    "copy-webpack-plugin": "^13.0.0",
-    "cross-env": "^7.0.3",
-    "css-loader": "^7.1.2",
-    "css-minimizer-webpack-plugin": "^7.0.2",
-    "dotenv": "16.4.7",
-    "dotenv-expand": "12.0.1",
-    "eslint": "^9.22.0",
-    "fs-extra": "^11.3.0",
-    "html-webpack-plugin": "^5.6.3",
-    "jest": "^29.7.0",
-    "lint-staged": "^9.5.0",
-    "prettier": "^3.5.3",
-    "raf": "^3.4.1",
-    "react-dev-utils": "^12.0.1",
-    "resolve": "^1.22.10",
-    "style-loader": "^4.0.0",
-    "styled-components": "^6.1.15",
-    "stylus": "0.64.0",
-    "stylus-loader": "8.1.1",
-    "terser-webpack-plugin": "^5.3.14",
-    "ts-jest": "^29.2.6",
-    "ts-loader": "^9.5.2",
-    "typescript": "5.8.2",
-    "url-loader": "4.1.1",
-    "webpack": "^5.98.0",
-    "webpack-bundle-analyzer": "^4.10.2",
-    "webpack-cli": "^6.0.1",
-    "webpack-dev-server": "^5.2.0",
-    "webpack-manifest-plugin": "^5.0.1"
-  },
-  "jest": {
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx,ts,tsx}",
-      "!**/*.d.ts"
-    ],
-    "setupFiles": [
-      "<rootDir>/config/polyfills.js"
-    ],
-    "testMatch": [
-      "<rootDir>/**/*.(spec|test).(j|t)s?(x)"
-    ],
-    "testEnvironment": "node",
-    "testURL": "http://localhost",
-    "transform": {
-      "^.+\\.(js|jsx|mjs)$": "<rootDir>/node_modules/babel-jest",
-      "^.+\\.tsx?$": "<rootDir>/config/jest/typescriptTransform.js",
-      "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
-      "^(?!.*\\.(js|jsx|mjs|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
-    },
-    "transformIgnorePatterns": [
-      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs|ts|tsx)$"
-    ],
-    "moduleFileExtensions": [
-      "web.ts",
-      "ts",
-      "web.tsx",
-      "tsx",
-      "web.js",
-      "js",
-      "web.jsx",
-      "jsx",
-      "json",
-      "node",
-      "mjs"
-    ],
-    "globals": {
-      "ts-jest": {
-        "tsConfigFile": "./tsconfig.test.json"
-      }
-    },
-    "moduleNameMapper": {
-      "^src(.*)$": "<rootDir>/src/$1",
-      "^components(.*)$": "<rootDir>/src/components/$1",
-      "^constants(.*)$": "<rootDir>/src/constants/$1",
-      "^contexts(.*)$": "<rootDir>/src/contexts/$1",
-      "^models(.*)$": "<rootDir>/src/models/$1",
-      "^modalPages(.*)$": "<rootDir>/src/modalPages/$1",
-      "^pages(.*)$": "<rootDir>/src/pages/$1",
-      "^stores(.*)$": "<rootDir>/src/stores/$1",
-      "^services(.*)$": "<rootDir>/src/services/$1",
-      "^themes(.*)$": "<rootDir>/src/themes/$1",
-      "^ui(.*)$": "<rootDir>/src/ui/$1",
-      "^utils(.*)$": "<rootDir>/src/utils/$1"
-    }
-  },
-  "babel": {
-    "presets": [
-      "react-app"
-    ]
-  },
-  "proxy": "http://localhost:3001",
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
-      "prettier --write",
-      "eslint",
-      "git add"
-    ],
-    "*.{css,json,md}": [
-      "prettier --write",
-      "git add"
-    ]
+    "@eslint/js": "^9.21.0",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "@types/react-router": "^5.1.20",
+    "@vitejs/plugin-react": "^4.3.4",
+    "eslint": "^9.21.0",
+    "eslint-plugin-react-hooks": "^5.1.0",
+    "eslint-plugin-react-refresh": "^0.4.19",
+    "globals": "^15.15.0",
+    "stylus": "^0.64.0",
+    "typescript": "~5.7.2",
+    "typescript-eslint": "^8.24.1",
+    "vite": "^6.2.0"
   }
 }

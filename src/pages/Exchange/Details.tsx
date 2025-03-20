@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Box, Image } from 'grommet';
 import { observer } from 'mobx-react-lite';
 import { Icon, Text } from 'components/Base';
-import { useStores } from 'stores';
+import { useStores } from '@/stores';
 import { formatWithSixDecimals } from 'utils';
 import { EXCHANGE_MODE, NETWORK_TYPE, TOKEN } from '../../stores/interfaces';
 import { Price } from '../Explorer/Components';

@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useEffect, useState } from 'react';
 import { Box, Grid } from 'grommet';
 import { observer } from 'mobx-react-lite';
-import { useStores } from 'stores';
+import { useStores } from '@/stores';
 import {
   Button,
   Checkbox,

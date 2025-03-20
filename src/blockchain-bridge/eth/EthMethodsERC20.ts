@@ -7,7 +7,7 @@ import { getGasPrice } from './helpers';
 import { abi as ProxyERC20Abi } from '../out/ProxyERC20Abi';
 import { abi as ProxyERC721Abi } from '../out/ProxyERC721Abi';
 import { networks, getTokenConfig } from '../../configs';
-import { NETWORK_TYPE, TOKEN } from 'stores/interfaces';
+import { NETWORK_TYPE, TOKEN } from '@/stores/interfaces';
 import BN from 'bn.js';
 
 export interface IEthMethodsInitParams {

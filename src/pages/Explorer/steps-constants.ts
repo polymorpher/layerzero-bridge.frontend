@@ -1,4 +1,4 @@
-import { ACTION_TYPE, IAction, TOKEN } from 'stores/interfaces';
+import { ACTION_TYPE, IAction, TOKEN } from '@/stores/interfaces';
 
 export const getStepsTitle = (action: IAction, token: TOKEN) => {
   if ((token === TOKEN.ERC721 || token === TOKEN.HRC721) && action.type === ACTION_TYPE.getHRC20Address) {

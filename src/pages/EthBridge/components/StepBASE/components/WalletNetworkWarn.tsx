@@ -47,7 +47,7 @@ export const WalletNetworkWarn: React.FC<Props> = observer(() => {
           {externalNetworkName}: {externalSubNetworkName}
         </span>
         . Please change network to {externalSubNetworkName} for transfer&nbsp;
-        {externalNetworkName}&nbsp;->&nbsp;{destinationNetworkName} with
+        {externalNetworkName}&nbsp;-&gt;&nbsp;{destinationNetworkName} with
         MetaMask.
       </Text>
     </Box>

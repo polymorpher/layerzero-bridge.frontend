@@ -1,4 +1,4 @@
-import { IStores } from 'stores';
+import { IStores } from '@/stores';
 
 export class StoreConstructor {
   public stores: IStores;

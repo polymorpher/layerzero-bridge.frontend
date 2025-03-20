@@ -5,7 +5,7 @@ import { ITextProps, Text } from 'components/Base';
 import { Error } from 'ui';
 import cn from 'classnames';
 import * as styles from './feeds.styl';
-import { useStores } from 'stores';
+import { useStores } from '@/stores';
 import {
   ACTION_TYPE,
   EXCHANGE_MODE,
@@ -13,7 +13,7 @@ import {
   IOperation,
   STATUS,
   TOKEN,
-} from 'stores/interfaces';
+} from '@/stores/interfaces';
 import { dateTimeFormat, truncateAddressString } from '../../utils';
 import { getStepsTitle } from './steps-constants';
 import axios from 'axios';

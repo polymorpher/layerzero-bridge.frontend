@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { IOperation, TOKEN } from 'stores/interfaces';
+import { IOperation, TOKEN } from '@/stores/interfaces';
 import { formatWithSixDecimals } from 'utils';
 import * as styles from './styles.styl';
 import { observer } from 'mobx-react-lite';

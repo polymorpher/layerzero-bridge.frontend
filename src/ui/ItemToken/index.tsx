@@ -3,7 +3,7 @@ import { Box } from 'grommet';
 import cn from 'classnames';
 import { Text } from 'components/Base/components/Text';
 import * as styles from './styles.styl';
-import { TOKEN } from 'stores/interfaces';
+import { TOKEN } from '@/stores/interfaces';
 
 const icons: Record<TOKEN, string> = {
   [TOKEN.ALL]: '/busd.svg',

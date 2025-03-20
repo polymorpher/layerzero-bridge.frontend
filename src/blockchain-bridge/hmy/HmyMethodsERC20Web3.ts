@@ -6,7 +6,7 @@ const BN = require('bn.js');
 
 import { abi as ProxyERC20Abi } from '../out/ProxyHRC20Abi';
 import { getTokenConfig } from '../../configs';
-import { TOKEN } from 'stores/interfaces';
+import { TOKEN } from '@/stores/interfaces';
 
 interface IHmyMethodsInitParams {
   web3: Web3;

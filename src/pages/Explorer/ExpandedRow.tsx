@@ -8,7 +8,7 @@ import {
   IOperation,
   STATUS,
   TOKEN,
-} from 'stores/interfaces';
+} from '@/stores/interfaces';
 import * as styles from './styles.styl';
 import cn from 'classnames';
 import { dateTimeAgoFormat, sliceByLength, truncateAddressString } from 'utils';

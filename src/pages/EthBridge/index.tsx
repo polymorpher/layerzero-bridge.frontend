@@ -3,8 +3,8 @@ import { useEffect } from 'react';
 import { Box } from 'grommet';
 
 import { observer } from 'mobx-react-lite';
-import { useStores } from 'stores';
-import { TOKEN } from 'stores/interfaces';
+import { useStores } from '@/stores';
+import { TOKEN } from '@/stores/interfaces';
 import { LayoutCommon } from '../../components/Layouts/LayoutCommon/LayoutCommon';
 import { ethBridgeStore } from './EthBridgeStore';
 import { StepManager } from './components/StepManager/StepManager';

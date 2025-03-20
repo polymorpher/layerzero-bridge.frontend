@@ -14,7 +14,7 @@ import { getCorrectArr } from './helpers';
 import { sleep } from '../utils';
 import qs from 'qs';
 import { hmyMethodsERC20Web3 } from '../blockchain-bridge/hmy';
-import { useStores } from 'stores';
+import { useStores } from '@/stores';
 import { tokensConfigs } from '../configs';
 
 let serversJson = require('../../appengine-servers.json');

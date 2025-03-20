@@ -1,4 +1,4 @@
-import { IStores } from 'stores';
+import { IStores } from '@/stores';
 import { StoreConstructor } from './core/StoreConstructor';
 import { action, observable } from 'mobx';
 // import { getUIConfig } from '../services';

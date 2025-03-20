@@ -1,4 +1,4 @@
-import { ACTION_TYPE, NETWORK_TYPE, TOKEN } from 'stores/interfaces';
+import { ACTION_TYPE, NETWORK_TYPE, TOKEN } from '@/stores/interfaces';
 
 export const getStepsTitle = (
   action: ACTION_TYPE,

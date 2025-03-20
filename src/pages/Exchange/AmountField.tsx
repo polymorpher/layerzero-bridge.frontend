@@ -3,7 +3,7 @@ import { Box } from 'grommet';
 import { NumberInput } from 'components/Form/Fields';
 import { isRequired } from 'components/Form/validations';
 import { Button, Text } from 'components/Base';
-import { useStores } from 'stores';
+import { useStores } from '@/stores';
 import { observer } from 'mobx-react-lite';
 import { CloseIcon, SliceTooltip } from 'ui';
 import { TOKEN } from '../../stores/interfaces';

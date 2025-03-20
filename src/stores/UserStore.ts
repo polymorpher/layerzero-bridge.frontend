@@ -1,5 +1,5 @@
 import { action, autorun, computed, observable } from 'mobx';
-import { IStores } from 'stores';
+import { IStores } from '@/stores';
 import { statusFetching } from '../constants';
 import detectEthereumProvider from '@metamask/detect-provider';
 import {
