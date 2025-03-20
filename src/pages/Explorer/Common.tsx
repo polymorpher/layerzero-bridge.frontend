@@ -51,7 +51,7 @@ export const getColumns = (
     //   render: value => (
     //     <a
     //       className={styles.addressLink}
-    //       href={`${prrocess.env.VITE_ETH_EXPLORER_URL}/address/${value}`}
+    //       href={`${process.env.VITE_ETH_EXPLORER_URL}/address/${value}`}
     //       target="_blank"
     //     >
     //       {truncateAddressString(value, 5)}
@@ -66,7 +66,7 @@ export const getColumns = (
     //   render: value => (
     //     <a
     //       className={styles.addressLink}
-    //       href={`${prrocess.env.VITE_HMY_EXPLORER_URL}/address/${value}`}
+    //       href={`${process.env.VITE_HMY_EXPLORER_URL}/address/${value}`}
     //       target="_blank"
     //     >
     //       {truncateAddressString(value, 5)}

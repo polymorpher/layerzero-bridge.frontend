@@ -49,7 +49,7 @@ export const send1ONEToken = async (params: {
   // }
 
   // if (!stores.userMetamask.erc20Address) {
-  //   await stores.user.setHRC20Mapping(prrocess.env.VITE_ONE_HRC20, true);
+  //   await stores.user.setHRC20Mapping(process.env.VITE_ONE_HRC20, true);
   // }
 
   if (mode === EXCHANGE_MODE.ONE_TO_ETH) {

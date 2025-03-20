@@ -32,8 +32,8 @@ export class HmyMethodsDepositWeb3 {
       .deposit(mulDecimals(amount, 18))
       .send({
         from: accounts[0],
-        gasLimit: prrocess.env.VITE_GAS_LIMIT,
-        gasPrice: Number(prrocess.env.VITE_GAS_PRICE),
+        gasLimit: process.env.VITE_GAS_LIMIT,
+        gasPrice: Number(process.env.VITE_GAS_PRICE),
         value: mulDecimals(amount, 18),
       })
       .on('transactionHash', sendTxCallback);

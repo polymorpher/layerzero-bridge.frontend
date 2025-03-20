@@ -30,10 +30,10 @@ export const WalletNetworkWarn: React.FC<Props> = observer(() => {
 
   const externalSubNetworkName =
     exchange.network === NETWORK_TYPE.ETHEREUM
-      ? prrocess.env.VITE_NETWORK === 'mainnet'
+      ? process.env.VITE_NETWORK === 'mainnet'
         ? 'mainnet'
         : 'kovan'
-      : prrocess.env.VITE_NETWORK === 'mainnet'
+      : process.env.VITE_NETWORK === 'mainnet'
       ? 'mainnet'
       : 'testnet';
 

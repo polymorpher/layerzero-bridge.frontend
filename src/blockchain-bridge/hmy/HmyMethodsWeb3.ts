@@ -43,8 +43,8 @@ export class HmyMethodsWeb3 {
       .approve(this.hmyManagerContractAddress, mulDecimals(amount, 18))
       .send({
         from: accounts[0],
-        gasLimit: prrocess.env.VITE_GAS_LIMIT,
-        gasPrice: Number(prrocess.env.VITE_GAS_PRICE),
+        gasLimit: process.env.VITE_GAS_LIMIT,
+        gasPrice: Number(process.env.VITE_GAS_PRICE),
       })
       .on('transactionHash', sendTxCallback);
 
@@ -61,8 +61,8 @@ export class HmyMethodsWeb3 {
       .burnToken(mulDecimals(amount, 18), addrHex)
       .send({
         from: accounts[0],
-        gasLimit: prrocess.env.VITE_GAS_LIMIT,
-        gasPrice: Number(prrocess.env.VITE_GAS_PRICE),
+        gasLimit: process.env.VITE_GAS_LIMIT,
+        gasPrice: Number(process.env.VITE_GAS_PRICE),
       })
       .on('transactionHash', sendTxCallback);
 

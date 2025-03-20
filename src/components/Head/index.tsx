@@ -17,7 +17,7 @@ const MainLogo = styled.img`
   margin-bottom: 4px;
 `;
 
-const getTokenServiceEnable = prrocess.env.VITE_GET_TOKENS_SERVICE === 'true';
+const getTokenServiceEnable = process.env.VITE_GET_TOKENS_SERVICE === 'true';
 
 export const Head: React.FC<IStyledChildrenProps<BoxProps>> = withTheme(
   observer(({ theme, ...props }: IStyledChildrenProps<BoxProps>) => {

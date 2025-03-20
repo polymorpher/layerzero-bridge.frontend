@@ -62,8 +62,8 @@ export class HmyMethodsERC20Web3 {
       )
       .send({
         from: accounts[0],
-        gasLimit: prrocess.env.VITE_GAS_LIMIT,
-        gasPrice: Number(prrocess.env.VITE_GAS_PRICE),
+        gasLimit: process.env.VITE_GAS_LIMIT,
+        gasPrice: Number(process.env.VITE_GAS_PRICE),
       })
       .on('transactionHash', sendTxCallback);
 
@@ -93,8 +93,8 @@ export class HmyMethodsERC20Web3 {
         .setApprovalForAll(tokenConfig.proxyHRC20, true)
         .send({
           from: accounts[0],
-          gasLimit: prrocess.env.VITE_GAS_LIMIT,
-          gasPrice: Number(prrocess.env.VITE_GAS_PRICE),
+          gasLimit: process.env.VITE_GAS_LIMIT,
+          gasPrice: Number(process.env.VITE_GAS_PRICE),
         })
         .on('transactionHash', sendTxCallback);
 
@@ -145,8 +145,8 @@ export class HmyMethodsERC20Web3 {
     //   .burnToken(hrc20Address, mulDecimals(amount, decimals), userAddr)
     //   .send({
     //     from: accounts[0],
-    //     gasLimit: prrocess.env.VITE_GAS_LIMIT,
-    //     gasPrice: Number(prrocess.env.VITE_GAS_PRICE),
+    //     gasLimit: process.env.VITE_GAS_LIMIT,
+    //     gasPrice: Number(process.env.VITE_GAS_PRICE),
     //   })
     //   .on('transactionHash', sendTxCallback);
 
@@ -196,8 +196,8 @@ export class HmyMethodsERC20Web3 {
       .send({
         value,
         from: accounts[0],
-        gasLimit: prrocess.env.VITE_GAS_LIMIT,
-        gasPrice: Number(prrocess.env.VITE_GAS_PRICE),
+        gasLimit: process.env.VITE_GAS_LIMIT,
+        gasPrice: Number(process.env.VITE_GAS_PRICE),
       })
       .on('transactionHash', sendTxCallback);
 
@@ -216,8 +216,8 @@ export class HmyMethodsERC20Web3 {
     //   .burnTokens(hrc20Address, amount, userAddr)
     //   .send({
     //     from: accounts[0],
-    //     gasLimit: prrocess.env.VITE_GAS_LIMIT,
-    //     gasPrice: Number(prrocess.env.VITE_GAS_PRICE),
+    //     gasLimit: process.env.VITE_GAS_LIMIT,
+    //     gasPrice: Number(process.env.VITE_GAS_PRICE),
     //   })
     //   .on('transactionHash', sendTxCallback);
     //
@@ -342,8 +342,8 @@ export class HmyMethodsERC20Web3 {
       .lockNative(mulDecimals(amount, 18), hmyAddrHex)
       .send({
         from: accounts[0],
-        gas: prrocess.env.VITE_GAS_LIMIT,
-        gasPrice: prrocess.env.VITE_GAS_PRICE,
+        gas: process.env.VITE_GAS_LIMIT,
+        gasPrice: process.env.VITE_GAS_PRICE,
         value: mulDecimals(amount, 18),
       })
       .on('transactionHash', sendTxCallback);

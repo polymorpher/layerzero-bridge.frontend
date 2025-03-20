@@ -191,7 +191,7 @@ export class Exchange extends StoreConstructor {
             ) {
               throw new Error(
                 `Your MetaMask in on the wrong network. Please switch on ${getNetworkName(this.stores.exchange.network)
-                } ${prrocess.env.VITE_NETWORK} and try again!`,
+                } ${process.env.VITE_NETWORK} and try again!`,
               );
             }
 
@@ -202,7 +202,7 @@ export class Exchange extends StoreConstructor {
                 !this.stores.user.isAuthorized)
             ) {
               throw new Error(
-                `Your MetaMask in on the wrong network. Please switch on Harmony ${prrocess.env.VITE_NETWORK} and try again!`,
+                `Your MetaMask in on the wrong network. Please switch on Harmony ${process.env.VITE_NETWORK} and try again!`,
               );
             }
 
@@ -539,7 +539,7 @@ export class Exchange extends StoreConstructor {
     }
 
     if (token === TOKEN.ONE) {
-      this.stores.user.setHRC20Mapping(prrocess.env.VITE_ONE_HRC20, true);
+      this.stores.user.setHRC20Mapping(process.env.VITE_ONE_HRC20, true);
     }
   }
 

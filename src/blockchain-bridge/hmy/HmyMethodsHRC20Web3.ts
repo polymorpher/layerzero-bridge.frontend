@@ -50,8 +50,8 @@ export class HmyMethodsHRC20Web3 {
       .approve(this.hmyManagerContractAddress, mulDecimals(amount, decimals))
       .send({
         from: accounts[0],
-        gasLimit: prrocess.env.VITE_GAS_LIMIT,
-        gasPrice: Number(prrocess.env.VITE_GAS_PRICE),
+        gasLimit: process.env.VITE_GAS_LIMIT,
+        gasPrice: Number(process.env.VITE_GAS_PRICE),
       })
       .on('transactionHash', sendTxCallback);
 
@@ -91,8 +91,8 @@ export class HmyMethodsHRC20Web3 {
       .lockToken(erc20Address, mulDecimals(amount, decimals), hmyAddrHex)
       .send({
         from: accounts[0],
-        gasLimit: prrocess.env.VITE_GAS_LIMIT,
-        gasPrice: Number(prrocess.env.VITE_GAS_PRICE),
+        gasLimit: process.env.VITE_GAS_LIMIT,
+        gasPrice: Number(process.env.VITE_GAS_PRICE),
       })
       .on('transactionHash', sendTxCallback);
 
@@ -109,8 +109,8 @@ export class HmyMethodsHRC20Web3 {
       .lockOne(mulDecimals(amount, 18), hmyAddrHex)
       .send({
         from: accounts[0],
-        gasLimit: prrocess.env.VITE_GAS_LIMIT,
-        gasPrice: Number(prrocess.env.VITE_GAS_PRICE),
+        gasLimit: process.env.VITE_GAS_LIMIT,
+        gasPrice: Number(process.env.VITE_GAS_PRICE),
         value: mulDecimals(amount, 18),
       })
       .on('transactionHash', sendTxCallback);

@@ -3,9 +3,9 @@ import { Wallet } from '@harmony-js/account';
 
 export const options1 = { gasPrice: '0x3B9ACA00' };
 
-export const options = { gasPrice: Number(prrocess.env.VITE_GAS_PRICE), gasLimit: 6721900 };
+export const options = { gasPrice: Number(process.env.VITE_GAS_PRICE), gasLimit: 6721900 };
 
-export const options2 = { gasPrice: Number(prrocess.env.VITE_GAS_PRICE), gasLimit: 21000 };
+export const options2 = { gasPrice: Number(process.env.VITE_GAS_PRICE), gasLimit: 21000 };
 
 export const ONE = '000000000000000000';
 

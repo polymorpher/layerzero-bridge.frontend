@@ -66,7 +66,7 @@ export const getTokensFromOperations = (
         if (
           userTokens.find(
             token =>
-              token.hrc20Address === prrocess.env.VITE_ONE_HRC20 &&
+              token.hrc20Address === process.env.VITE_ONE_HRC20 &&
               token.network === operation.network,
           )
         ) {
@@ -75,7 +75,7 @@ export const getTokensFromOperations = (
 
         token = tokensStore.allData.find(
           token =>
-            token.hrc20Address === prrocess.env.VITE_ONE_HRC20 &&
+            token.hrc20Address === process.env.VITE_ONE_HRC20 &&
             token.network === operation.network,
         );
 
@@ -98,7 +98,7 @@ export const getTokensFromOperations = (
         if (
           userTokens.find(
             token =>
-              token.erc20Address === prrocess.env.VITE_ONE_HRC20 &&
+              token.erc20Address === process.env.VITE_ONE_HRC20 &&
               token.network === operation.network,
           )
         ) {
@@ -107,7 +107,7 @@ export const getTokensFromOperations = (
 
         token = tokensStore.allData.find(
           token =>
-            token.erc20Address === prrocess.env.VITE_ONE_HRC20 &&
+            token.erc20Address === process.env.VITE_ONE_HRC20 &&
             token.network === operation.network,
         );
 

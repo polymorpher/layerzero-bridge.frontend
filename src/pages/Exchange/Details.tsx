@@ -179,7 +179,7 @@ export const Details = observer<{ showTotal?: boolean; children?: any }>(
         <AssetRowAddress
           label="ONE address"
           address={exchange.transaction.oneAddress}
-          link={`${prrocess.env.VITE_HMY_EXPLORER_URL}/address/${getBech32Address(
+          link={`${process.env.VITE_HMY_EXPLORER_URL}/address/${getBech32Address(
             exchange.transaction.oneAddress,
           )}?activeTab=3`}
         />

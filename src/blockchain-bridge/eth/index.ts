@@ -11,7 +11,7 @@ import { EthMethodsERC1155 } from './EthMethodsERC1155';
 import { networks } from '../../configs';
 
 // @ts-ignore
-const web3URL = window.ethereum ? window.ethereum : prrocess.env.VITE_ETH_NODE_URL;
+const web3URL = window.ethereum ? window.ethereum : process.env.VITE_ETH_NODE_URL;
 
 export interface INetworkMethods {
   web3: Web3;

@@ -190,7 +190,7 @@ const StepRow = observer(
     const explorerUrl =
       (isEth(action.type)
         ? exchange.config.explorerURL
-        : prrocess.env.VITE_HMY_EXPLORER_URL) + '/tx/';
+        : process.env.VITE_HMY_EXPLORER_URL) + '/tx/';
 
     return (
       <Box
@@ -268,7 +268,7 @@ const StepRow = observer(
               <Box>
                 <a
                   href={
-                    prrocess.env.VITE_HMY_EXPLORER_URL + '/address/' + hrc20Address
+                    process.env.VITE_HMY_EXPLORER_URL + '/address/' + hrc20Address
                   }
                   target="_blank"
                 >

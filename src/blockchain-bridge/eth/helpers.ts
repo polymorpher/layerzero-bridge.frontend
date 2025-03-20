@@ -10,7 +10,7 @@ export const getGasPrice = async (web3: Web3) => {
 
   try {
     const info = await agent.get(
-      `https://data-api.defipulse.com/api/v1/egs/api/ethgasAPI.json?api-key=${prrocess.env.VITE_ETH_GAS_API_KEY}`,
+      `https://data-api.defipulse.com/api/v1/egs/api/ethgasAPI.json?api-key=${process.env.VITE_ETH_GAS_API_KEY}`,
     );
 
     gasPriceApi = mulDecimals(info.body.average, 8);

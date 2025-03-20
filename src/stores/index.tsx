@@ -51,7 +51,7 @@ stores.erc20Select = new Erc20SelectStore(stores);
 stores.uiConfig = new UIConfig(stores);
 stores.ethBridgeStore = ethBridgeStore;
 
-if (!prrocess.env.VITE_production) {
+if (!process.env.VITE_production) {
   window.stores = stores;
 }
 

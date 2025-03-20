@@ -19,11 +19,11 @@ import { tokensConfigs } from '../configs';
 
 let serversJson = require('../../appengine-servers.json');
 
-if (prrocess.env.VITE_NETWORK === 'testnet') {
+if (process.env.VITE_NETWORK === 'testnet') {
   serversJson = require('../../appengine-servers.testnet.json');
 }
 
-export const threshold = 1; //prrocess.env.VITE_THRESHOLD;
+export const threshold = 1; //process.env.VITE_THRESHOLD;
 
 export const getValidators = async () => {
   const availableValidators = await Promise.all(
@@ -242,7 +242,7 @@ export const getTokensInfo = async (
   params: any,
 ): Promise<{ content: ITokenInfo[] }> => {
   const res = await agent.get<{ body: ITokenInfo[] }>(
-    prrocess.env.VITE_ASSETS_INFO_SERVICE + '/tokens/',
+    process.env.VITE_ASSETS_INFO_SERVICE + '/tokens/',
     params,
   );
 
@@ -261,7 +261,7 @@ export const getIdentityTokensInfo = async (
   params: any,
 ): Promise<{ content: IIdentityTokenInfo[] }> => {
   const res = await agent.get<{ body: IIdentityTokenInfo[] }>(
-    prrocess.env.VITE_ASSETS_INFO_SERVICE + '/itokens/',
+    process.env.VITE_ASSETS_INFO_SERVICE + '/itokens/',
     params,
   );
 
