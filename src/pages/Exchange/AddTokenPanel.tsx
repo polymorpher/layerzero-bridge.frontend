@@ -1,5 +1,5 @@
 import { EXCHANGE_MODE, TOKEN } from '@/stores/interfaces';
-import { AddTokenString } from 'ui/AddToken';
+import { AddTokenString } from '@/ui/AddToken';
 import * as React from 'react';
 import { useStores } from '@/stores';
 import { observer } from 'mobx-react-lite';

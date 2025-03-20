@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Box } from 'grommet';
-import { NumberInput } from 'components/Form/Fields';
-import { isRequired } from 'components/Form/validations';
+import { NumberInput } from '@/components/Form/Fields';
+import { isRequired } from '@/components/Form/validations';
 import { observer } from 'mobx-react-lite';
 import { useState } from 'react';
 import { useStores } from '@/stores';

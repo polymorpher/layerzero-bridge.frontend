@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Box } from 'grommet';
-import { Title, Text } from 'components/Base';
+import { Title, Text } from '@/components/Base';
 import * as styles from './faq-styles.styl';
-import { Icon } from 'components/Base/components/Icons';
+import { Icon } from '@/components/Base/components/Icons';
 
 export const faqConfig = [
   // {

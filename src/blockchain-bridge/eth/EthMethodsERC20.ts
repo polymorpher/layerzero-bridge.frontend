@@ -71,7 +71,7 @@ export class EthMethodsERC20 {
           .approve(getTokenConfig(erc20Address).proxyERC20, 0)
           .send({
             from: accounts[0],
-            gas: process.env.ETH_GAS_LIMIT,
+            gas: prrocess.env.VITE_ETH_GAS_LIMIT,
             gasPrice: this.gasPrice
               ? this.gasPrice
               : await getGasPrice(this.web3),
@@ -97,7 +97,7 @@ export class EthMethodsERC20 {
       )
       .send(isArb ? arbParams : {
         from: accounts[0],
-        gas: process.env.ETH_GAS_LIMIT,
+        gas: prrocess.env.VITE_ETH_GAS_LIMIT,
         gasPrice: this.gasPrice ? this.gasPrice : await getGasPrice(this.web3),
       })
       .on('transactionHash', hash => sendTxCallback(hash));
@@ -126,7 +126,7 @@ export class EthMethodsERC20 {
         .setApprovalForAll(tokenConfig.proxyERC20, true)
         .send({
           from: accounts[0],
-          gas: process.env.ETH_GAS_LIMIT,
+          gas: prrocess.env.VITE_ETH_GAS_LIMIT,
           gasPrice: await getGasPrice(this.web3),
         })
         .on('transactionHash', hash => sendTxCallback(hash));
@@ -149,7 +149,7 @@ export class EthMethodsERC20 {
 
     // const gasLimit = Math.max(
     //   // estimateGas + estimateGas * 0.3,
-    //   Number(process.env.ETH_GAS_LIMIT),
+    //   Number(prrocess.env.VITE_ETH_GAS_LIMIT),
     // );
 
     // let transaction = await this.ethManagerContract.methods
@@ -183,7 +183,7 @@ export class EthMethodsERC20 {
 
     console.log('Send Fee: ', sendFee);
 
-    const gasLimit = Math.max(500000, Number(process.env.ETH_GAS_LIMIT));
+    const gasLimit = Math.max(500000, Number(prrocess.env.VITE_ETH_GAS_LIMIT));
 
     const res = await proxyContract.methods
       .sendFrom(
@@ -251,7 +251,7 @@ export class EthMethodsERC20 {
 
     // const gasLimit = Math.max(
     //   estimateGas + estimateGas * 0.3,
-    //   Number(process.env.ETH_GAS_LIMIT),
+    //   Number(prrocess.env.VITE_ETH_GAS_LIMIT),
     // );
 
     // let transaction = await this.ethManagerContract.methods
@@ -317,7 +317,7 @@ export class EthMethodsERC20 {
       console.error(e);
     }
 
-    const gasLimit = Math.max(estimateGas, 500000, Number(process.env.ETH_GAS_LIMIT));
+    const gasLimit = Math.max(estimateGas, 500000, Number(prrocess.env.VITE_ETH_GAS_LIMIT));
 
     const res = await proxyContract.methods
       .sendFrom(
@@ -465,7 +465,7 @@ export class EthMethodsERC20 {
       .lockNative(mulDecimals(amount, 18), hmyAddrHex)
       .send({
         from: accounts[0],
-        gas: process.env.ETH_GAS_LIMIT,
+        gas: prrocess.env.VITE_ETH_GAS_LIMIT,
         gasPrice: await getGasPrice(this.web3),
         value: mulDecimals(amount, 18),
       })

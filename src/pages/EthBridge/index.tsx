@@ -48,7 +48,7 @@ export const EthBridge = observer((props: any) => {
     erc20Select.setToken(token.erc20Address);
 
     if (TOKEN.ETH === tokenTypeFromUrl) {
-      user.setHRC20Token(process.env.ETH_HRC20);
+      user.setHRC20Token(prrocess.env.VITE_ETH_HRC20);
       userMetamask.setTokenDetails({
         name: 'ETH',
         decimals: '18',

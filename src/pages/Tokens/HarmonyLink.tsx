@@ -18,7 +18,7 @@ export const HarmonyLink: React.FC<Props> = ({ address }) => (
     />
     <a
       className={styles.addressLink}
-      href={`${process.env.HMY_EXPLORER_URL}/address/${address}?activeTab=3`}
+      href={`${prrocess.env.VITE_HMY_EXPLORER_URL}/address/${address}?activeTab=3`}
       target="_blank"
     >
       {truncateAddressString(address, TRUNCATE_ADDRESS)}

@@ -6,14 +6,14 @@ import { Button } from 'grommet/components/Button';
 import * as s from './Destination.styl';
 import { observer } from 'mobx-react';
 import { ethBridgeStore } from '../../../../EthBridgeStore';
-import { Input, isRequired, isValidEthAddress } from 'components/Form';
+import { Input, isRequired, isValidEthAddress } from '@/components/Form';
 import cn from 'classnames';
 import { EXCHANGE_MODE } from '../../../../../../stores/interfaces';
 import { BridgeControl } from '../../../BridgeControl/BridgeControl';
 import { CircleQuestion } from 'grommet-icons';
 import { Tip } from 'grommet/components/Tip';
 import { ThemeContext } from '../../../../../../themes/ThemeContext';
-import { TipContent } from 'components/TipContent';
+import { TipContent } from '@/components/TipContent';
 import { MetamaskButton } from '../../../../../../components/MetamaskButton';
 import { getTokenConfig } from '../../../../../../configs';
 

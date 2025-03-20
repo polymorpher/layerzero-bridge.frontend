@@ -10,7 +10,7 @@ import { TOKEN } from '../../../../../../stores/interfaces';
 import { truncateAddressString } from '../../../../../../utils';
 import { CircleQuestion, CircleInformation } from 'grommet-icons';
 import { TipContent } from '../../../../../../components/TipContent';
-import { Link } from 'components/Link';
+import { Link } from '@/components/Link';
 import { getTokenConfig } from '../../../../../../configs';
 import { ENSInput } from '../ENSInput';
 
@@ -28,12 +28,12 @@ const TokenAddresses = observer(() => {
 
   const originAddressLink =
     exchange.token === TOKEN.HRC20
-      ? `${process.env.HMY_EXPLORER_URL}/address/${tokenConfig.hrc20Address}`
+      ? `${prrocess.env.VITE_HMY_EXPLORER_URL}/address/${tokenConfig.hrc20Address}`
       : `${exchange.config.explorerURL}/token/${tokenConfig.erc20Address}`;
 
   const mappedAddressLink =
     exchange.token !== TOKEN.HRC20
-      ? `${process.env.HMY_EXPLORER_URL}/address/${tokenConfig.hrc20Address}?activeTab=3`
+      ? `${prrocess.env.VITE_HMY_EXPLORER_URL}/address/${tokenConfig.hrc20Address}?activeTab=3`
       : `${exchange.config.explorerURL}/token/${tokenConfig.erc20Address}`;
 
   return (

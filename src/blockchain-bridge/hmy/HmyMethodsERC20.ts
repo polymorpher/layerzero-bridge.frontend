@@ -17,7 +17,7 @@ export class HmyMethodsERC20 {
   private hmy: Harmony;
   private hmyManagerContract: Contract;
   private hmyTokenManagerAddress: string;
-  private options = { gasPrice: Number(process.env.GAS_PRICE), gasLimit: 6721900 };
+  private options = { gasPrice: Number(prrocess.env.VITE_GAS_PRICE), gasLimit: 6721900 };
 
   constructor(params: IHmyMethodsInitParams) {
     this.hmy = params.hmy;

@@ -47,7 +47,7 @@ export class HmyMethodsHRC721Web3 {
         .setApprovalForAll(this.hmyManagerContractAddress, true)
         .send({
           from: accounts[0],
-          gas: process.env.ETH_GAS_LIMIT,
+          gas: prrocess.env.VITE_ETH_GAS_LIMIT,
           gasPrice: await getGasPrice(this.web3),
         })
         .on('transactionHash', hash => sendTxCallback(hash));
@@ -73,7 +73,7 @@ export class HmyMethodsHRC721Web3 {
       .lockTokens(erc721Address, tokenIds, hmyAddrHex)
       .send({
         from: accounts[0],
-        gasLimit: process.env.GAS_LIMIT,
+        gasLimit: prrocess.env.VITE_GAS_LIMIT,
         gasPrice: new BN(await this.web3.eth.getGasPrice()).mul(new BN(1)),
       })
       .on('transactionHash', sendTxCallback);

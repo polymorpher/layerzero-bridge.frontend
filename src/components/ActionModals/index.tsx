@@ -6,8 +6,8 @@ import { Footer } from '../Footer';
 import { ActionModalConfig } from '@/stores/ActionModalsStore';
 import { useMemo, useRef } from 'react';
 import { observable } from 'mobx';
-import { ModalView, ModalContent } from 'components/Base';
-import { ModalButton } from 'components/ModalButton/ModalButton';
+import { ModalView, ModalContent } from '@/components/Base';
+import { ModalButton } from '@/components/ModalButton/ModalButton';
 
 export type TActionModalProps<T = any> = {
   config: ActionModalConfig;

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Button } from 'components/Base';
+import { Button } from '@/components/Base';
 import { Spinner2 } from './Spinner2';
 
 export const ButtonEx = ({

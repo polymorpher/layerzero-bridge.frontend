@@ -198,7 +198,7 @@ export const AddTokenModal = observer(
       <Box pad="large">
         <Text size="large">
           To add a bridged token to MetaMask, you need to switch MetaMask
-          network to Harmony {process.env.NETWORK} and try again.
+          network to Harmony {prrocess.env.VITE_NETWORK} and try again.
         </Text>
       </Box>
     );

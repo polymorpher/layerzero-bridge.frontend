@@ -3,12 +3,12 @@ import { useEffect, useState } from 'react';
 import { Box } from 'grommet';
 import { observer } from 'mobx-react-lite';
 import { useStores } from '@/stores';
-import { IColumn, Table } from 'components/Table';
+import { IColumn, Table } from '@/components/Table';
 import { IIdentityTokenInfo, NETWORK_TYPE } from '@/stores/interfaces';
-import { truncateAddressString } from 'utils';
+import { truncateAddressString } from '@/utils';
 import * as styles from './styles.styl';
-import { Button, Text, Title } from 'components/Base';
-import { SearchInput } from 'components/Search';
+import { Button, Text, Title } from '@/components/Base';
+import { SearchInput } from '@/components/Search';
 import { getBech32Address, getChecksumAddress } from '../../blockchain-bridge';
 import { getNetworkIcon } from '../../stores/names';
 import { useMediaQuery } from 'react-responsive';
@@ -47,7 +47,7 @@ const oneAddress = value => (
     <img className={styles.imgToken} style={{ height: 18 }} src="/one.svg" />
     <a
       className={styles.addressLink}
-      href={`${process.env.HMY_EXPLORER_URL}/address/${value}?activeTab=3`}
+      href={`${prrocess.env.VITE_HMY_EXPLORER_URL}/address/${value}?activeTab=3`}
       target="_blank"
     >
       {truncateAddressString(value, 15)}
@@ -67,7 +67,7 @@ const getAssetAddress = (data, type) => {
     default:
       const address =
         String(data.mappingAddress).toLowerCase() ===
-        String(process.env.ONE_HRC20).toLowerCase()
+        String(prrocess.env.VITE_ONE_HRC20).toLowerCase()
           ? String(data.mappingAddress).toLowerCase()
           : getChecksumAddress(data.mappingAddress);
 

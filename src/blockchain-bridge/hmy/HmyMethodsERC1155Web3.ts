@@ -48,8 +48,8 @@ export class HmyMethodsERC1155Web3 {
         .setApprovalForAll(this.hmyManagerContractAddress, true)
         .send({
           from: accounts[0],
-          gasLimit: process.env.GAS_LIMIT,
-          gasPrice: Number(process.env.GAS_PRICE),
+          gasLimit: prrocess.env.VITE_GAS_LIMIT,
+          gasPrice: Number(prrocess.env.VITE_GAS_PRICE),
         })
         .on('transactionHash', sendTxCallback);
 
@@ -74,8 +74,8 @@ export class HmyMethodsERC1155Web3 {
       .burnToken(hrc20Address, mulDecimals(amount, decimals), userAddr)
       .send({
         from: accounts[0],
-        gasLimit: process.env.GAS_LIMIT,
-        gasPrice: Number(process.env.GAS_PRICE),
+        gasLimit: prrocess.env.VITE_GAS_LIMIT,
+        gasPrice: Number(prrocess.env.VITE_GAS_PRICE),
       })
       .on('transactionHash', sendTxCallback);
 
@@ -98,8 +98,8 @@ export class HmyMethodsERC1155Web3 {
       .burnTokens(hrc1155AddressHex, tokenIds, hmyAddrHex, amounts)
       .send({
         from: accounts[0],
-        gasLimit: process.env.GAS_LIMIT,
-        gasPrice: Number(process.env.GAS_PRICE),
+        gasLimit: prrocess.env.VITE_GAS_LIMIT,
+        gasPrice: Number(prrocess.env.VITE_GAS_PRICE),
       })
       .on('transactionHash', sendTxCallback);
 
@@ -223,8 +223,8 @@ export class HmyMethodsERC1155Web3 {
       .lockNative(mulDecimals(amount, 18), hmyAddrHex)
       .send({
         from: accounts[0],
-        gasLimit: process.env.GAS_LIMIT,
-        gasPrice: Number(process.env.GAS_PRICE),
+        gasLimit: prrocess.env.VITE_GAS_LIMIT,
+        gasPrice: Number(prrocess.env.VITE_GAS_PRICE),
         value: mulDecimals(amount, 18),
       })
       .on('transactionHash', sendTxCallback);

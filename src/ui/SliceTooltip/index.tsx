@@ -1,6 +1,5 @@
-import { sliceByLength } from 'utils';
+import { sliceByLength } from '@/utils';
 import RCTooltip from 'rc-tooltip';
-import * as React from 'react';
 
 export const SliceTooltip = (props: { value: any; maxLength: number }) => {
   if (typeof props.value !== 'string') {

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Box, Spinner } from 'grommet';
-import { Text } from 'components/Base';
+import { Text } from '@/components/Base';
 
 interface Props {
   loading: boolean;

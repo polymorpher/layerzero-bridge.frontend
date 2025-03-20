@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Box } from 'grommet';
 import { useState } from 'react';
-import { Button, Icon, TextInput } from 'components/Base';
+import { Button, Icon, TextInput } from '@/components/Base';
 import { CommonFilterBodyProps } from './common';
 
 export const SearchText: React.FunctionComponent<CommonFilterBodyProps> =

@@ -6,7 +6,7 @@ import {
   StatusWarning,
 } from 'grommet-icons';
 import { Box } from 'grommet';
-import { Text } from 'components/Base';
+import { Text } from '@/components/Base';
 import { STATUS } from '../stores/interfaces';
 
 const boxProps = {

@@ -7,7 +7,7 @@ import { TOKEN } from '../../../../stores/interfaces';
 import { useStores } from '../../../../stores';
 import { observer } from 'mobx-react';
 import { Grid } from 'grommet';
-import { TextInput, Button } from 'components/Base';
+import { TextInput, Button } from '@/components/Base';
 import { Form, isRequired, NumberInput } from '../../../../components/Form';
 import { Spinner } from '../../../../ui';
 import cn from 'classnames';

@@ -1,4 +1,4 @@
-import { Text } from 'components/Base';
+import { Text } from '@/components/Base';
 import { Sorter, sortType } from './Sorter';
 import { Filter } from './Filter';
 import { SubHeader } from './SubHeader';

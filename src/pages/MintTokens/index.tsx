@@ -1,14 +1,14 @@
 import * as React from 'react';
 import { useEffect, useState } from 'react';
 import { Box } from 'grommet';
-import { ItemToken, Spinner } from 'ui';
+import { ItemToken, Spinner } from '@/ui';
 import { observer } from 'mobx-react-lite';
-import { Button, Icon, Text, TextInput, Title } from 'components/Base';
+import { Button, Icon, Text, TextInput, Title } from '@/components/Base';
 import { TOKEN } from '@/stores/interfaces';
 import { useStores } from '@/stores';
 import { statusFetching } from '../../constants';
 import * as styles from '../Exchange/styles.styl';
-import * as services from 'services';
+import * as services from '@/services';
 import { LayoutCommon } from '../../components/Layouts/LayoutCommon/LayoutCommon';
 
 export const MintTokens = observer((props: any) => {

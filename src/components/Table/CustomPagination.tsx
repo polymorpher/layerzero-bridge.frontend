@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Select } from 'components/Base';
+import { Select } from '@/components/Base';
 import { observer } from 'mobx-react';
 import styled from 'styled-components';
 import { Box } from 'grommet';

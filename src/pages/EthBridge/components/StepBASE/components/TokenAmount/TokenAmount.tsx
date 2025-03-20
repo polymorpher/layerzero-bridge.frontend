@@ -18,7 +18,7 @@ import { ThemeContext } from '../../../../../../themes/ThemeContext';
 import { Box, Button } from 'grommet';
 import { getTokenConfig } from '../../../../../../configs';
 import { Tip } from 'grommet/components/Tip';
-import { TipContent } from 'components/TipContent';
+import { TipContent } from '@/components/TipContent';
 import { CircleQuestion } from 'grommet-icons';
 
 interface Props { }

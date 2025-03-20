@@ -106,7 +106,7 @@ export class UserStoreMetamask extends StoreConstructor {
 
     return numberToHex(Number(this.metamaskChainId)) === config.chainId;
 
-    switch (process.env.NETWORK) {
+    switch (prrocess.env.VITE_NETWORK) {
       case 'testnet':
         switch (this.stores.exchange.network) {
           case NETWORK_TYPE.ETHEREUM:
@@ -565,7 +565,7 @@ export class UserStoreMetamask extends StoreConstructor {
     ) {
       throw new Error(
         `Your MetaMask in on the wrong network. Please switch on ${getNetworkName(this.stores.exchange.network)
-        } ${process.env.NETWORK} and try again!`,
+        } ${prrocess.env.VITE_NETWORK} and try again!`,
       );
     }
 
@@ -575,7 +575,7 @@ export class UserStoreMetamask extends StoreConstructor {
         !this.stores.user.isAuthorized)
     ) {
       throw new Error(
-        `Your MetaMask in on the wrong network. Please switch on Harmony ${process.env.NETWORK} and try again!`,
+        `Your MetaMask in on the wrong network. Please switch on Harmony ${prrocess.env.VITE_NETWORK} and try again!`,
       );
     }
 
@@ -726,7 +726,7 @@ export class UserStoreMetamask extends StoreConstructor {
     ) {
       throw new Error(
         `Your MetaMask in on the wrong network. Please switch on ${getNetworkName(this.stores.exchange.network)
-        } ${process.env.NETWORK} and try again!`,
+        } ${prrocess.env.VITE_NETWORK} and try again!`,
       );
     }
 
@@ -736,7 +736,7 @@ export class UserStoreMetamask extends StoreConstructor {
         !this.stores.user.isAuthorized)
     ) {
       throw new Error(
-        `Your MetaMask in on the wrong network. Please switch on Harmony ${process.env.NETWORK} and try again!`,
+        `Your MetaMask in on the wrong network. Please switch on Harmony ${prrocess.env.VITE_NETWORK} and try again!`,
       );
     }
 
@@ -816,7 +816,7 @@ export class UserStoreMetamask extends StoreConstructor {
     ) {
       throw new Error(
         `Your MetaMask in on the wrong network. Please switch on ${getNetworkName(this.stores.exchange.network)
-        } ${process.env.NETWORK} and try again!`,
+        } ${prrocess.env.VITE_NETWORK} and try again!`,
       );
     }
 
@@ -826,7 +826,7 @@ export class UserStoreMetamask extends StoreConstructor {
         !this.stores.user.isAuthorized)
     ) {
       throw new Error(
-        `Your MetaMask in on the wrong network. Please switch on Harmony ${process.env.NETWORK} and try again!`,
+        `Your MetaMask in on the wrong network. Please switch on Harmony ${prrocess.env.VITE_NETWORK} and try again!`,
       );
     }
 

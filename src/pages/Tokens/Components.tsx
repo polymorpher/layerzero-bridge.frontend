@@ -1,7 +1,7 @@
 import { Box, BoxProps } from 'grommet';
 import cn from 'classnames';
 import * as styles from './styles.styl';
-import { Text } from 'components/Base/components/Text';
+import { Text } from '@/components/Base/components/Text';
 import * as React from 'react';
 import { EXCHANGE_MODE, NETWORK_TYPE } from '@/stores/interfaces';
 import { observer } from 'mobx-react';

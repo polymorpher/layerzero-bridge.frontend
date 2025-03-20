@@ -1,8 +1,8 @@
 import React from 'react';
 import { Box } from 'grommet';
-import { Title } from 'components/Base';
+import { Title } from '@/components/Base';
 import * as styles from '../FAQ/faq-styles.styl';
-import { Info } from 'components/Info';
+import { Info } from '@/components/Info';
 import { LayoutCommon } from '../../components/Layouts/LayoutCommon/LayoutCommon';
 
 export const InfoPage = () => {

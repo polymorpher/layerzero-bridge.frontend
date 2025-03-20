@@ -275,9 +275,9 @@ export const TokenSettingsModal: React.FC<Props> = observer(({ onClose }) => {
                   exchange.setToken(TOKEN.ONE);
                   routing.push(`/${exchange.token}`);
 
-                  // user.setHRC20Mapping(process.env.ONE_HRC20, true);
+                  // user.setHRC20Mapping(prrocess.env.VITE_ONE_HRC20, true);
 
-                  // user.setHRC20Token(process.env.ONE_HRC20);
+                  // user.setHRC20Token(prrocess.env.VITE_ONE_HRC20);
                   // userMetamask.setTokenDetails({
                   //   name: 'Ethereum ONE',
                   //   decimals: '18',

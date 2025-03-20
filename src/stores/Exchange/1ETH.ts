@@ -5,7 +5,7 @@ import {
   NETWORK_TYPE,
   STATUS,
 } from '../interfaces';
-import { sleep } from 'utils';
+import { sleep } from '@/utils';
 import { ITransaction } from './index';
 import { IStores } from '../index';
 import { hmyMethodsERC20Web3 } from '../../blockchain-bridge/hmy';

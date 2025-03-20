@@ -1,4 +1,4 @@
-import { IStyledProps } from 'themes';
+import { IStyledProps } from '@/themes';
 import { PropsWithChildren } from 'react';
 
 export type ReactRenderFn = () => React.ReactNode;

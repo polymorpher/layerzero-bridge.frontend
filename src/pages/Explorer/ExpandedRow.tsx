@@ -11,7 +11,7 @@ import {
 } from '@/stores/interfaces';
 import * as styles from './styles.styl';
 import cn from 'classnames';
-import { dateTimeAgoFormat, sliceByLength, truncateAddressString } from 'utils';
+import { dateTimeAgoFormat, sliceByLength, truncateAddressString } from '@/utils';
 import { getStepsTitle } from './steps-constants';
 import { Text } from '../../components/Base';
 import { Price } from './Components';
@@ -314,7 +314,7 @@ export const ExpandedRow = observer((props: IExpandedRowProps) => {
                   <a
                     className={styles.addressLink}
                     href={
-                      process.env.HMY_EXPLORER_URL +
+                      prrocess.env.VITE_HMY_EXPLORER_URL +
                       '/address/' +
                       token.hrc20Address
                     }
@@ -346,7 +346,7 @@ export const ExpandedRow = observer((props: IExpandedRowProps) => {
                       href={
                         (isEth(action.type)
                           ? exchange.getExplorerByNetwork(props.data.network)
-                          : process.env.HMY_EXPLORER_URL) +
+                          : prrocess.env.VITE_HMY_EXPLORER_URL) +
                         '/tx/' +
                         action.transactionHash
                       }

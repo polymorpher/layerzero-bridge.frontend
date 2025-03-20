@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { Box } from 'grommet';
 import { observer } from 'mobx-react-lite';
 import { useStores } from '@/stores';
-import { Table } from 'components/Table';
+import { Table } from '@/components/Table';
 import { getColumns, StatisticBlockLight } from './Common';
 import { ExpandedRow } from './ExpandedRow';
 import { validators } from '../../services';

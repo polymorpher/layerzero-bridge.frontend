@@ -3,7 +3,7 @@ import { CheckboxOptions, NumberRange, SearchText } from './types';
 import { useState } from 'react';
 import { withTheme } from 'styled-components';
 import { FilterWrap, FilterModal } from './components';
-import { Icon } from 'components/Base';
+import { Icon } from '@/components/Base';
 import { ITableOptions } from '../';
 
 interface IFilterProps {

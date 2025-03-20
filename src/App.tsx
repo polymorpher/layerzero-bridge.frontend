@@ -21,11 +21,11 @@ import { HelpPage } from './interfaces/NeedHelp';
 import { SupportPage } from './pages/Support';
 import { ModalReactRouter } from './modals/ModalReactRouter';
 
-export const App: React.FC = () => (
+const App: React.FC = () => (
   <Providers>
     <React.Suspense fallback={<div />}>
       <Routes>
-        {process.env.GET_TOKENS_SERVICE === 'true' && (
+        {prrocess.env.VITE_GET_TOKENS_SERVICE === 'true' && (
           <Route path="/get-tokens" Component={MintTokens} />
         )}
         <Route path="/tokens" Component={Tokens} />
@@ -52,3 +52,5 @@ export const App: React.FC = () => (
     <GlobalStyle theme={baseTheme} />
   </Providers>
 );
+
+export default App

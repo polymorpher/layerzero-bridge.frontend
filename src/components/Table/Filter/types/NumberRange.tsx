@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Box } from 'grommet';
 import { useState } from 'react';
-import { NumberInput, Text, Button } from 'components/Base';
+import { NumberInput, Text, Button } from '@/components/Base';
 import { CommonFilterBodyProps } from './common';
 
 export const NumberRange: React.FunctionComponent<CommonFilterBodyProps> =

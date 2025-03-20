@@ -8,7 +8,7 @@ import {
   Checkbox as CheckBoxInput,
   FileInput as File,
   // } from 'packages/Components/src';
-} from 'components/Base';
+} from '@/components/Base';
 
 import * as React from 'react';
 import { createField } from '../';
