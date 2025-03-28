@@ -39,7 +39,7 @@ export class Tokens extends ListStoreConstructor<ITokenInfo> {
             if (
               t.symbol === '1ONE' &&
               String(t.hrc20Address).toLowerCase() !==
-                String(process.env.VITE_ONE_HRC20).toLowerCase()
+                String(import.meta.env.VITE_ONE_HRC20).toLowerCase()
             ) {
               return false;
             }
@@ -48,7 +48,7 @@ export class Tokens extends ListStoreConstructor<ITokenInfo> {
               t.symbol === 'ONE' &&
               hasAddress(t) &&
               String(t.hrc20Address).toLowerCase() !==
-                String(process.env.VITE_ONE_HRC20).toLowerCase()
+                String(import.meta.env.VITE_ONE_HRC20).toLowerCase()
             ) {
               return false;
             }

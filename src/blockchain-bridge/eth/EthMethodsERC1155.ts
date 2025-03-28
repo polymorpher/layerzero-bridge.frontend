@@ -3,7 +3,8 @@ import { getAddress } from '@harmony-js/crypto';
 import Web3 from 'web3';
 import { mulDecimals } from '../../utils';
 import { getGasPrice } from './helpers';
-const BN = require('bn.js');
+import BN from 'bn.js';
+import * as MyERC1155Json from '../out/MyERC1155';
 
 export interface IEthMethodsInitParams {
   web3: Web3;
@@ -41,7 +42,6 @@ export class EthMethodsERC1155 {
       return;
     }
 
-    const MyERC1155Json = require('../out/MyERC1155');
     const erc1155Contract = new this.web3.eth.Contract(
       MyERC1155Json.abi,
       erc1155Address,
@@ -59,7 +59,7 @@ export class EthMethodsERC1155 {
         // reset to 0
         await erc1155Contract.methods.approve(this.ethManagerAddress, 0).send({
           from: accounts[0],
-          gas: process.env.VITE_ETH_GAS_LIMIT,
+          gas: import.meta.env.VITE_ETH_GAS_LIMIT,
           gasPrice: this.gasPrice
             ? this.gasPrice
             : await getGasPrice(this.web3),
@@ -71,18 +71,17 @@ export class EthMethodsERC1155 {
       .approve(this.ethManagerAddress, mulDecimals(amount, decimals))
       .send({
         from: accounts[0],
-        gas: process.env.VITE_ETH_GAS_LIMIT,
+        gas: import.meta.env.VITE_ETH_GAS_LIMIT,
         gasPrice: this.gasPrice ? this.gasPrice : await getGasPrice(this.web3),
       })
       .on('transactionHash', hash => sendTxCallback(hash));
   };
 
   balanceOf =  async (erc1155Address: string, tokenId: string) => {
-    const tokenJson = require('../out/MyERC1155');
     // @ts-ignore
     const accounts = await ethereum.enable();
     const erc1155Contract = new this.web3.eth.Contract(
-      tokenJson.abi,
+      MyERC1155Json.abi,
       erc1155Address,
     );
 
@@ -95,7 +94,6 @@ export class EthMethodsERC1155 {
       method: 'eth_requestAccounts',
     });
 
-    const MyERC1155Json = require('../out/MyERC721');
     const erc1155Contract = new this.web3.eth.Contract(
       MyERC1155Json.abi,
       erc1155Address,
@@ -110,7 +108,7 @@ export class EthMethodsERC1155 {
         .setApprovalForAll(this.ethManagerAddress, true)
         .send({
           from: accounts[0],
-          gas: process.env.VITE_ETH_GAS_LIMIT,
+          gas: import.meta.env.VITE_ETH_GAS_LIMIT,
           gasPrice: await getGasPrice(this.web3),
         })
         .on('transactionHash', hash => sendTxCallback(hash));
@@ -139,7 +137,7 @@ export class EthMethodsERC1155 {
 
     const gasLimit = Math.max(
       estimateGas + estimateGas * 0.3,
-      Number(process.env.VITE_ETH_GAS_LIMIT),
+      Number(import.meta.env.VITE_ETH_GAS_LIMIT),
     );
 
     let transaction = await this.ethManagerContract.methods
@@ -174,7 +172,7 @@ export class EthMethodsERC1155 {
 
     const gasLimit = Math.max(
       estimateGas + estimateGas * 0.3,
-      Number(process.env.VITE_ETH_GAS_LIMIT),
+      Number(import.meta.env.VITE_ETH_GAS_LIMIT),
     );
 
     let transaction = await this.ethManagerContract.methods
@@ -190,7 +188,6 @@ export class EthMethodsERC1155 {
   };
 
   checkEthBalance = async (erc1155Address, addr) => {
-    const MyERC1155Json = require('../out/MyERC1155');
     const erc1155Contract = new this.web3.eth.Contract(
       MyERC1155Json.abi,
       erc1155Address,
@@ -204,7 +201,6 @@ export class EthMethodsERC1155 {
       throw new Error('Invalid token address');
     }
 
-    const MyERC1155Json = require('../out/MyERC1155');
     const erc1155Contract = new this.web3.eth.Contract(
       MyERC1155Json.abi,
       erc1155Address,
@@ -226,7 +222,6 @@ export class EthMethodsERC1155 {
   };
 
   tokenDetailsERC1155 = async erc1155Address => {
-    const tokenJson = require('../out/MyERC1155');
     const erc1155Contract = new this.web3.eth.Contract(
       tokenJson.abi,
       erc1155Address,
@@ -256,8 +251,6 @@ export class EthMethodsERC1155 {
     if (!this.web3.utils.isAddress(erc1155Address)) {
       throw new Error('Invalid token address');
     }
-
-    const MyERC1155Json = require('../out/MyERC1155');
 
     const erc1155Contract = new this.web3.eth.Contract(
       MyERC1155Json.abi,
@@ -315,7 +308,7 @@ export class EthMethodsERC1155 {
       .lockNative(mulDecimals(amount, 18), hmyAddrHex)
       .send({
         from: accounts[0],
-        gas: process.env.VITE_ETH_GAS_LIMIT,
+        gas: import.meta.env.VITE_ETH_GAS_LIMIT,
         gasPrice: await getGasPrice(this.web3),
         value: mulDecimals(amount, 18),
       })

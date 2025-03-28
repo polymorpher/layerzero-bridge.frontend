@@ -2,7 +2,6 @@ import { mulDecimals } from '../../utils';
 import Web3 from 'web3';
 import { Contract } from 'web3-eth-contract';
 import { getAddress } from '@harmony-js/crypto';
-const BN = require('bn.js');
 
 interface IHmyMethodsInitParams {
   web3: Web3;
@@ -32,8 +31,8 @@ export class HmyMethodsDepositWeb3 {
       .deposit(mulDecimals(amount, 18))
       .send({
         from: accounts[0],
-        gasLimit: process.env.VITE_GAS_LIMIT,
-        gasPrice: Number(process.env.VITE_GAS_PRICE),
+        gasLimit: import.meta.env.VITE_GAS_LIMIT,
+        gasPrice: Number(import.meta.env.VITE_GAS_PRICE),
         value: mulDecimals(amount, 18),
       })
       .on('transactionHash', sendTxCallback);

@@ -56,16 +56,16 @@ export class Portfolio extends StoreConstructor {
     const serviceConfig = await operationService.getConfig();
     const ethNetwork = initNetwork(
       serviceConfig[NETWORK_TYPE.ETHEREUM],
-      process.env.VITE_ETH_NODE_URL,
+      import.meta.env.VITE_ETH_NODE_URL,
     );
 
     const binanceNetwork = initNetwork(
       serviceConfig[NETWORK_TYPE.BINANCE],
-      process.env.VITE_ETH_NODE_URL,
+      import.meta.env.VITE_ETH_NODE_URL,
     );
 
     const loadHmyBalance = async (token: ITokenInfo, oneAddress: string) => {
-      if (token.hrc20Address === process.env.VITE_ONE_HRC20) {
+      if (token.hrc20Address === import.meta.env.VITE_ONE_HRC20) {
         return await hmyWeb3.eth.getBalance(oneAddress).catch(err => {
           return '0';
         });
@@ -81,7 +81,7 @@ export class Portfolio extends StoreConstructor {
 
     const loadEthBalance = (token: ITokenInfo, ethAddress: string) => {
       if (token.network === NETWORK_TYPE.BINANCE) {
-        if (token.erc20Address === process.env.VITE_ONE_HRC20) {
+        if (token.erc20Address === import.meta.env.VITE_ONE_HRC20) {
           return binanceNetwork
             .getEthBalance(ethAddress)
             .then(balance => (Number(balance) * 1e18).toString())

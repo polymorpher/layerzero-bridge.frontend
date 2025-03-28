@@ -25,7 +25,7 @@ const App: React.FC = () => (
   <Providers>
     <React.Suspense fallback={<div />}>
       <Routes>
-        {process.env.VITE_GET_TOKENS_SERVICE === 'true' && (
+        {import.meta.env.VITE_GET_TOKENS_SERVICE === 'true' && (
           <Route path="/get-tokens" Component={MintTokens} />
         )}
         <Route path="/tokens" Component={Tokens} />

@@ -148,7 +148,7 @@ export class Erc20SelectStore extends StoreConstructor {
   get tokensList() {
     // if (
     //   this.stores.exchange.network === NETWORK_TYPE.ETHEREUM &&
-    //   process.env.VITE_NETWORK !== 'testnet'
+    //   import.meta.env.VITE_NETWORK !== 'testnet'
     // ) {
     //   return tokensMainnet;
     // }

@@ -80,10 +80,10 @@ export const WalletBalances = observer(() => {
 
   const externalSubNetworkName =
     exchange.network === NETWORK_TYPE.ETHEREUM
-      ? process.env.VITE_NETWORK === 'mainnet'
+      ? import.meta.env.VITE_NETWORK === 'mainnet'
         ? 'mainnet'
         : 'kovan'
-      : process.env.VITE_NETWORK === 'mainnet'
+      : import.meta.env.VITE_NETWORK === 'mainnet'
       ? 'mainnet'
       : 'testnet';
 
@@ -208,14 +208,14 @@ export const WalletBalances = observer(() => {
                       asset={`${externalNetworkName} BUSD`}
                       value={formatWithSixDecimals(userMetamask.ethBUSDBalance)}
                       selected={exchange.token === TOKEN.BUSD}
-                      link={`${exchange.config.explorerURL}/token/${process.env.VITE_ETH_BUSD_CONTRACT}`}
+                      link={`${exchange.config.explorerURL}/token/${import.meta.env.VITE_ETH_BUSD_CONTRACT}`}
                     />
 
                     <AssetRow
                       asset={`${externalNetworkName} LINK`}
                       value={formatWithSixDecimals(userMetamask.ethLINKBalance)}
                       selected={exchange.token === TOKEN.LINK}
-                      link={`${exchange.config.explorerURL}/token/${process.env.VITE_ETH_LINK_CONTRACT}`}
+                      link={`${exchange.config.explorerURL}/token/${import.meta.env.VITE_ETH_LINK_CONTRACT}`}
                       last={true}
                     />
                   </>
@@ -252,7 +252,7 @@ export const WalletBalances = observer(() => {
               </Box>
               <Text style={{ marginTop: 0 }}>
                 network:{' '}
-                {process.env.VITE_NETWORK === 'mainnet' ? 'mainnet' : 'testnet'}
+                {import.meta.env.VITE_NETWORK === 'mainnet' ? 'mainnet' : 'testnet'}
               </Text>
             </Box>
 
@@ -307,7 +307,7 @@ export const WalletBalances = observer(() => {
                   does not match{' '}
                   <span style={{ color: 'rgb(0, 173, 232)' }}>
                     Harmony:{' '}
-                    {process.env.VITE_NETWORK === 'mainnet' ? 'mainnet' : 'testnet'}
+                    {import.meta.env.VITE_NETWORK === 'mainnet' ? 'mainnet' : 'testnet'}
                   </span>
                   . Please{' '}
                   <a
@@ -350,7 +350,7 @@ export const WalletBalances = observer(() => {
                       TOKEN.HRC721,
                     ].includes(exchange.token)}
                     link={`${
-                      process.env.VITE_HMY_EXPLORER_URL
+                      import.meta.env.VITE_HMY_EXPLORER_URL
                     }/address/${getBech32Address(
                       user.hrc20Address,
                     )}?activeTab=3`}
@@ -380,7 +380,7 @@ export const WalletBalances = observer(() => {
                       TOKEN.HRC721,
                     ].includes(exchange.token)}
                     link={`${
-                      process.env.VITE_HMY_EXPLORER_URL
+                      import.meta.env.VITE_HMY_EXPLORER_URL
                     }/address/${getBech32Address(
                       user.hrc20Address,
                     )}?txType=hrc721`}
@@ -410,7 +410,7 @@ export const WalletBalances = observer(() => {
                       TOKEN.HRC721,
                     ].includes(exchange.token)}
                     link={`${
-                      process.env.VITE_HMY_EXPLORER_URL
+                      import.meta.env.VITE_HMY_EXPLORER_URL
                     }/address/${getBech32Address(
                       user.hrc721Address,
                     )}?txType=hrc721`}
@@ -440,7 +440,7 @@ export const WalletBalances = observer(() => {
                       TOKEN.HRC721,
                     ].includes(exchange.token)}
                     link={`${
-                      process.env.VITE_HMY_EXPLORER_URL
+                      import.meta.env.VITE_HMY_EXPLORER_URL
                     }/address/${getBech32Address(
                       user.hrc1155Address,
                     )}?txType=hrc1155`}
@@ -462,7 +462,7 @@ export const WalletBalances = observer(() => {
                     value={formatWithSixDecimals(user.hrc20Balance)}
                     selected={exchange.token === TOKEN.ETH}
                     link={`${
-                      process.env.VITE_HMY_EXPLORER_URL
+                      import.meta.env.VITE_HMY_EXPLORER_URL
                     }/address/${getBech32Address(
                       user.hrc20Address,
                     )}?activeTab=3`}
@@ -483,9 +483,9 @@ export const WalletBalances = observer(() => {
                       value={formatWithSixDecimals(user.hmyBUSDBalance)}
                       selected={exchange.token === TOKEN.BUSD}
                       link={`${
-                        process.env.VITE_HMY_EXPLORER_URL
+                        import.meta.env.VITE_HMY_EXPLORER_URL
                       }/address/${getBech32Address(
-                        process.env.VITE_HMY_BUSD_CONTRACT,
+                        import.meta.env.VITE_HMY_BUSD_CONTRACT,
                       )}?activeTab=3`}
                     />
 
@@ -494,9 +494,9 @@ export const WalletBalances = observer(() => {
                       value={formatWithSixDecimals(user.hmyLINKBalance)}
                       selected={exchange.token === TOKEN.LINK}
                       link={`${
-                        process.env.VITE_HMY_EXPLORER_URL
+                        import.meta.env.VITE_HMY_EXPLORER_URL
                       }/address/${getBech32Address(
-                        process.env.VITE_HMY_LINK_CONTRACT,
+                        import.meta.env.VITE_HMY_LINK_CONTRACT,
                       )}?activeTab=3`}
                     />
                   </>

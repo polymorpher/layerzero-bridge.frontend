@@ -47,7 +47,7 @@ const oneAddress = value => (
     <img className={styles.imgToken} style={{ height: 18 }} src="/one.svg" />
     <a
       className={styles.addressLink}
-      href={`${process.env.VITE_HMY_EXPLORER_URL}/address/${value}?activeTab=3`}
+      href={`${import.meta.env.VITE_HMY_EXPLORER_URL}/address/${value}?activeTab=3`}
       target="_blank"
     >
       {truncateAddressString(value, 15)}
@@ -67,7 +67,7 @@ const getAssetAddress = (data, type) => {
     default:
       const address =
         String(data.mappingAddress).toLowerCase() ===
-        String(process.env.VITE_ONE_HRC20).toLowerCase()
+        String(import.meta.env.VITE_ONE_HRC20).toLowerCase()
           ? String(data.mappingAddress).toLowerCase()
           : getChecksumAddress(data.mappingAddress);
 

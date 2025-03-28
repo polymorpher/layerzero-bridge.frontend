@@ -17,13 +17,12 @@ import { hmyMethodsERC20Web3 } from '../blockchain-bridge/hmy';
 import { useStores } from '@/stores';
 import { tokensConfigs } from '../configs';
 
-let serversJson = require('../../appengine-servers.json');
+import serversJsonProd from '../../appengine-servers.json';
+import serversJsonTest from '../../appengine-servers.testnet.json';
 
-if (process.env.VITE_NETWORK === 'testnet') {
-  serversJson = require('../../appengine-servers.testnet.json');
-}
+const serversJson = import.meta.env.VITE_NETWORK === 'testnet' ? serversJsonTest : serversJsonProd
 
-export const threshold = 1; //process.env.VITE_THRESHOLD;
+export const threshold = 1; //import.meta.env.VITE_THRESHOLD;
 
 export const getValidators = async () => {
   const availableValidators = await Promise.all(
@@ -242,7 +241,7 @@ export const getTokensInfo = async (
   params: any,
 ): Promise<{ content: ITokenInfo[] }> => {
   const res = await agent.get<{ body: ITokenInfo[] }>(
-    process.env.VITE_ASSETS_INFO_SERVICE + '/tokens/',
+    import.meta.env.VITE_ASSETS_INFO_SERVICE + '/tokens/',
     params,
   );
 
@@ -261,7 +260,7 @@ export const getIdentityTokensInfo = async (
   params: any,
 ): Promise<{ content: IIdentityTokenInfo[] }> => {
   const res = await agent.get<{ body: IIdentityTokenInfo[] }>(
-    process.env.VITE_ASSETS_INFO_SERVICE + '/itokens/',
+    import.meta.env.VITE_ASSETS_INFO_SERVICE + '/itokens/',
     params,
   );
 

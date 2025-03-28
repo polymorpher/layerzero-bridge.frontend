@@ -1,5 +1,5 @@
 import * as React from 'react';
-import s from './Spinner.styl';
+import * as s from './Spinner.styl';
 
 export const Spinner: React.FC<React.SVGAttributes<SVGElement>> = props => {
   const boxSize = 16;

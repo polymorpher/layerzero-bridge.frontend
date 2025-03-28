@@ -2,11 +2,13 @@ import { mulDecimals } from '../../utils';
 import Web3 from 'web3';
 import { Contract } from 'web3-eth-contract';
 import { getAddress } from '@harmony-js/crypto';
-const BN = require('bn.js');
+import BN from 'bn.js';
 
 import { abi as ProxyERC20Abi } from '../out/ProxyHRC20Abi';
 import { getTokenConfig } from '../../configs';
 import { TOKEN } from '@/stores/interfaces';
+import * as erc20Json from '../out/MyERC20';
+import * as erc721Json from '../out/MyERC721';
 
 interface IHmyMethodsInitParams {
   web3: Web3;
@@ -40,9 +42,8 @@ export class HmyMethodsERC20Web3 {
     decimals,
     sendTxCallback?,
   ) => {
-    const tokenJson = require('../out/MyERC20');
     const hmyTokenContract = new this.web3.eth.Contract(
-      tokenJson.abi,
+      erc20Json.abi,
       hrc20Address,
     );
     // @ts-ignore
@@ -62,8 +63,8 @@ export class HmyMethodsERC20Web3 {
       )
       .send({
         from: accounts[0],
-        gasLimit: process.env.VITE_GAS_LIMIT,
-        gasPrice: Number(process.env.VITE_GAS_PRICE),
+        gasLimit: import.meta.env.VITE_GAS_LIMIT,
+        gasPrice: Number(import.meta.env.VITE_GAS_PRICE),
       })
       .on('transactionHash', sendTxCallback);
 
@@ -71,9 +72,8 @@ export class HmyMethodsERC20Web3 {
   };
 
   setApprovalForAll = async (hrc20Address, sendTxCallback?) => {
-    const tokenJson = require('../out/MyERC721');
     const hmyTokenContract = new this.web3.eth.Contract(
-      tokenJson.abi,
+      erc721Json.abi,
       hrc20Address,
     );
     // @ts-ignore
@@ -93,8 +93,8 @@ export class HmyMethodsERC20Web3 {
         .setApprovalForAll(tokenConfig.proxyHRC20, true)
         .send({
           from: accounts[0],
-          gasLimit: process.env.VITE_GAS_LIMIT,
-          gasPrice: Number(process.env.VITE_GAS_PRICE),
+          gasLimit: import.meta.env.VITE_GAS_LIMIT,
+          gasPrice: Number(import.meta.env.VITE_GAS_PRICE),
         })
         .on('transactionHash', sendTxCallback);
 
@@ -145,8 +145,8 @@ export class HmyMethodsERC20Web3 {
     //   .burnToken(hrc20Address, mulDecimals(amount, decimals), userAddr)
     //   .send({
     //     from: accounts[0],
-    //     gasLimit: process.env.VITE_GAS_LIMIT,
-    //     gasPrice: Number(process.env.VITE_GAS_PRICE),
+    //     gasLimit: import.meta.env.VITE_GAS_LIMIT,
+    //     gasPrice: Number(import.meta.env.VITE_GAS_PRICE),
     //   })
     //   .on('transactionHash', sendTxCallback);
 
@@ -196,8 +196,8 @@ export class HmyMethodsERC20Web3 {
       .send({
         value,
         from: accounts[0],
-        gasLimit: process.env.VITE_GAS_LIMIT,
-        gasPrice: Number(process.env.VITE_GAS_PRICE),
+        gasLimit: import.meta.env.VITE_GAS_LIMIT,
+        gasPrice: Number(import.meta.env.VITE_GAS_PRICE),
       })
       .on('transactionHash', sendTxCallback);
 
@@ -216,8 +216,8 @@ export class HmyMethodsERC20Web3 {
     //   .burnTokens(hrc20Address, amount, userAddr)
     //   .send({
     //     from: accounts[0],
-    //     gasLimit: process.env.VITE_GAS_LIMIT,
-    //     gasPrice: Number(process.env.VITE_GAS_PRICE),
+    //     gasLimit: import.meta.env.VITE_GAS_LIMIT,
+    //     gasPrice: Number(import.meta.env.VITE_GAS_PRICE),
     //   })
     //   .on('transactionHash', sendTxCallback);
     //
@@ -258,9 +258,8 @@ export class HmyMethodsERC20Web3 {
   };
 
   checkHmyBalance = async (hrc20Address: string, addr: string) => {
-    const tokenJson = require('../out/MyERC20');
     const hmyTokenContract = new this.web3.eth.Contract(
-      tokenJson.abi,
+      erc20Json.abi,
       hrc20Address,
     );
 
@@ -281,9 +280,8 @@ export class HmyMethodsERC20Web3 {
   };
 
   totalSupply = async hrc20Address => {
-    const tokenJson = require('../out/MyERC20');
     const hmyTokenContract = new this.web3.eth.Contract(
-      tokenJson.abi,
+      erc20Json.abi,
       hrc20Address,
     );
 
@@ -292,10 +290,8 @@ export class HmyMethodsERC20Web3 {
 
   allowance = async (addr: string, erc20Address: string) => {
     const addrHex = getAddress(addr).checksum;
-
-    const tokenJson = require('../out/MyERC20');
     const hmyTokenContract = new this.web3.eth.Contract(
-      tokenJson.abi,
+      erc20Json.abi,
       erc20Address,
     );
 
@@ -342,8 +338,8 @@ export class HmyMethodsERC20Web3 {
       .lockNative(mulDecimals(amount, 18), hmyAddrHex)
       .send({
         from: accounts[0],
-        gas: process.env.VITE_GAS_LIMIT,
-        gasPrice: process.env.VITE_GAS_PRICE,
+        gas: import.meta.env.VITE_GAS_LIMIT,
+        gasPrice: import.meta.env.VITE_GAS_PRICE,
         value: mulDecimals(amount, 18),
       })
       .on('transactionHash', sendTxCallback);

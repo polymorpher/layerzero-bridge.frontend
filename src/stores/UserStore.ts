@@ -20,7 +20,7 @@ import { HarmonyAddress } from '@harmony-js/crypto';
 import { getNetworkERC20Token, getNetworkName } from './names';
 import { ONE_SECOND } from '../constants/dates';
 
-const Web3 = require('web3');
+import Web3 from 'web3';
 
 const defaults = {};
 
@@ -132,7 +132,7 @@ export class UserStoreEx extends StoreConstructor {
   }
 
   @computed public get isNetworkActual() {
-    switch (process.env.VITE_NETWORK) {
+    switch (import.meta.env.VITE_NETWORK) {
       case 'testnet':
         return Number(this.metamaskChainId) === 1666700000;
 
@@ -430,7 +430,7 @@ export class UserStoreEx extends StoreConstructor {
         throw new Error(
           `Your MetaMask in on the wrong network. Please switch on ${
             getNetworkName(this.stores.exchange.network)
-          } ${process.env.VITE_NETWORK} and try again!`,
+          } ${import.meta.env.VITE_NETWORK} and try again!`,
         );
       }
 
@@ -440,7 +440,7 @@ export class UserStoreEx extends StoreConstructor {
           !this.stores.user.isAuthorized)
       ) {
         throw new Error(
-          `Your MetaMask in on the wrong network. Please switch on Harmony ${process.env.VITE_NETWORK} and try again!`,
+          `Your MetaMask in on the wrong network. Please switch on Harmony ${import.meta.env.VITE_NETWORK} and try again!`,
         );
       }
 
@@ -482,7 +482,7 @@ export class UserStoreEx extends StoreConstructor {
         throw new Error('This address already using for ERC721 token wrapper');
       }
 
-      // if (process.env.VITE_ETH_HRC20 === hrc20Address) {
+      // if (import.meta.env.VITE_ETH_HRC20 === hrc20Address) {
       //   throw new Error('This address already using for Harmony Eth token');
       // }
     }
@@ -553,7 +553,7 @@ export class UserStoreEx extends StoreConstructor {
         throw new Error(
           `Your MetaMask in on the wrong network. Please switch on ${
             getNetworkName(this.stores.exchange.network)
-          } ${process.env.VITE_NETWORK} and try again!`,
+          } ${import.meta.env.VITE_NETWORK} and try again!`,
         );
       }
 
@@ -563,7 +563,7 @@ export class UserStoreEx extends StoreConstructor {
           !this.stores.user.isAuthorized)
       ) {
         throw new Error(
-          `Your MetaMask in on the wrong network. Please switch on Harmony ${process.env.VITE_NETWORK} and try again!`,
+          `Your MetaMask in on the wrong network. Please switch on Harmony ${import.meta.env.VITE_NETWORK} and try again!`,
         );
       }
 
@@ -602,7 +602,7 @@ export class UserStoreEx extends StoreConstructor {
         throw new Error('This address already using for ERC721 token wrapper');
       }
 
-      // if (process.env.VITE_ETH_HRC20 === hrc20Address) {
+      // if (import.meta.env.VITE_ETH_HRC20 === hrc20Address) {
       //   throw new Error('This address already using for Harmony Eth token');
       // }
     }
@@ -683,7 +683,7 @@ export class UserStoreEx extends StoreConstructor {
         throw new Error(
           `Your MetaMask in on the wrong network. Please switch on ${
             getNetworkName(this.stores.exchange.network)
-          } ${process.env.VITE_NETWORK} and try again!`,
+          } ${import.meta.env.VITE_NETWORK} and try again!`,
         );
       }
 
@@ -693,7 +693,7 @@ export class UserStoreEx extends StoreConstructor {
           !this.stores.user.isAuthorized)
       ) {
         throw new Error(
-          `Your MetaMask in on the wrong network. Please switch on Harmony ${process.env.VITE_NETWORK} and try again!`,
+          `Your MetaMask in on the wrong network. Please switch on Harmony ${import.meta.env.VITE_NETWORK} and try again!`,
         );
       }
 
@@ -724,7 +724,7 @@ export class UserStoreEx extends StoreConstructor {
         throw new Error('This address already using for Native tokens');
       }
 
-      // if (process.env.VITE_ETH_HRC20 === hrc20Address) {
+      // if (import.meta.env.VITE_ETH_HRC20 === hrc20Address) {
       //   throw new Error('This address already using for Harmony Eth token');
       // }
     }

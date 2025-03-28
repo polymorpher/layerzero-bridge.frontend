@@ -28,12 +28,12 @@ const TokenAddresses = observer(() => {
 
   const originAddressLink =
     exchange.token === TOKEN.HRC20
-      ? `${process.env.VITE_HMY_EXPLORER_URL}/address/${tokenConfig.hrc20Address}`
+      ? `${import.meta.env.VITE_HMY_EXPLORER_URL}/address/${tokenConfig.hrc20Address}`
       : `${exchange.config.explorerURL}/token/${tokenConfig.erc20Address}`;
 
   const mappedAddressLink =
     exchange.token !== TOKEN.HRC20
-      ? `${process.env.VITE_HMY_EXPLORER_URL}/address/${tokenConfig.hrc20Address}?activeTab=3`
+      ? `${import.meta.env.VITE_HMY_EXPLORER_URL}/address/${tokenConfig.hrc20Address}?activeTab=3`
       : `${exchange.config.explorerURL}/token/${tokenConfig.erc20Address}`;
 
   return (

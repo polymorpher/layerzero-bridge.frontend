@@ -314,7 +314,7 @@ export const ExpandedRow = observer((props: IExpandedRowProps) => {
                   <a
                     className={styles.addressLink}
                     href={
-                      process.env.VITE_HMY_EXPLORER_URL +
+                      import.meta.env.VITE_HMY_EXPLORER_URL +
                       '/address/' +
                       token.hrc20Address
                     }
@@ -346,7 +346,7 @@ export const ExpandedRow = observer((props: IExpandedRowProps) => {
                       href={
                         (isEth(action.type)
                           ? exchange.getExplorerByNetwork(props.data.network)
-                          : process.env.VITE_HMY_EXPLORER_URL) +
+                          : import.meta.env.VITE_HMY_EXPLORER_URL) +
                         '/tx/' +
                         action.transactionHash
                       }
