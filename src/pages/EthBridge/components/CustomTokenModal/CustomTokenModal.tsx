@@ -1,23 +1,23 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { Box } from 'grommet/components/Box';
 import * as s from './CustomTokenModal.styl';
-import { Icon, Text, Title } from '../../../../components/Base';
+import { Icon, Text, Title } from '@/components/Base';
 import { Button as GrommetButton } from 'grommet/components/Button';
-import { TOKEN } from '../../../../stores/interfaces';
-import { useStores } from '../../../../stores';
+import { TOKEN } from '@/stores/interfaces';
+import { useStores } from '@/stores';
 import { observer } from 'mobx-react';
 import { Grid } from 'grommet';
 import { TextInput, Button } from '@/components/Base';
-import { Form, isRequired, NumberInput } from '../../../../components/Form';
-import { Spinner } from '../../../../ui';
+import { Form, isRequired, NumberInput } from '@/components/Form';
+import { Spinner } from '@/ui';
 import cn from 'classnames';
 import { TokensField } from '../../../Exchange/AmountField';
-import { formatWithSixDecimals, moreThanZero } from '../../../../utils';
+import { formatWithSixDecimals, moreThanZero } from '@/utils';
 import {
   isMultiNFT,
   isNFT,
   isNotNFT,
-} from '../../../../stores/Exchange/helpers';
+} from '@/stores/Exchange/helpers';
 import { getInputPlaceholder } from 'pages/Exchange/ERC20Select';
 
 interface Props {

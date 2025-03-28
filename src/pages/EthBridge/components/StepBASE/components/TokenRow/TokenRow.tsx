@@ -1,17 +1,17 @@
 import React, { useRef, useState } from 'react';
 import { Box, Tip } from 'grommet';
-import { Text } from '../../../../../../components/Base';
+import { Text } from '@/components/Base';
 import { TokenControl } from '../TokenControl/TokenControl';
 import { TokenAmount } from '../TokenAmount/TokenAmount';
 import { observer } from 'mobx-react';
-import { useStores } from '../../../../../../stores';
+import { useStores } from '@/stores';
 import { BridgeControl } from '../../../BridgeControl/BridgeControl';
-import { TOKEN } from '../../../../../../stores/interfaces';
-import { truncateAddressString } from '../../../../../../utils';
+import { TOKEN } from '@/stores/interfaces';
+import { truncateAddressString } from '@/utils';
 import { CircleQuestion, CircleInformation } from 'grommet-icons';
-import { TipContent } from '../../../../../../components/TipContent';
+import { TipContent } from '@/components/TipContent';
 import { Link } from '@/components/Link';
-import { getTokenConfig } from '../../../../../../configs';
+import { getTokenConfig } from '@/configs';
 import { ENSInput } from '../ENSInput';
 
 const TokenAddresses = observer(() => {

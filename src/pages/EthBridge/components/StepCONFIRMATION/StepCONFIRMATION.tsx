@@ -1,15 +1,15 @@
 import React, { useCallback } from 'react';
 import { Details } from '../../../Exchange/Details';
 import { Box } from 'grommet/components/Box';
-import { EXCHANGE_MODE } from '../../../../stores/interfaces';
-import { Button, Text } from '../../../../components/Base';
+import { EXCHANGE_MODE } from '@/stores/interfaces';
+import { Button, Text } from '@/components/Base';
 import { observer } from 'mobx-react';
-import { useStores } from '../../../../stores';
+import { useStores } from '@/stores';
 import * as s from '../StepBASE/StepBASE.styl';
 import cn from 'classnames';
 import { ethBridgeStore } from '../../EthBridgeStore';
 import { Networks } from '../Networks/Networks';
-import { Divider } from '../../../../components/Divider/Divider';
+import { Divider } from '@/components/Divider/Divider';
 import { StepContainer } from '../StepContainer';
 import { StatusWarning } from 'grommet-icons';
 

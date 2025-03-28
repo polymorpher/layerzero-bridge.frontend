@@ -1,14 +1,14 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { Box } from 'grommet/components/Box';
 import * as s from './ENSTokenModal.styl';
-import { Icon, Text } from '../../../../components/Base';
+import { Icon, Text } from '@/components/Base';
 import { Button as GrommetButton } from 'grommet/components/Button';
-import { useStores } from '../../../../stores';
+import { useStores } from '@/stores';
 import { observer } from 'mobx-react';
 import { Grid } from 'grommet';
 import { Button } from '@/components/Base';
-import { Form, Input, isRequired } from '../../../../components/Form';
-import { ModalContent } from '../../../../components/ModalContent';
+import { Form, Input, isRequired } from '@/components/Form';
+import { ModalContent } from '@/components/ModalContent';
 
 const OpenSeaBadge: React.FC = () => {
   return (

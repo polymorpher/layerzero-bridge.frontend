@@ -1,20 +1,20 @@
 import React, { useContext } from 'react';
-import { Icon, Text } from '../../../../components/Base';
+import { Icon, Text } from '@/components/Base';
 import { Box } from 'grommet/components/Box';
 import { Button } from 'grommet/components/Button';
 import * as s from './TokenSettingsModal.styl';
 import cn from 'classnames';
-import { EXCHANGE_STEPS } from '../../../../stores/Exchange';
-import { NETWORK_TYPE, TOKEN } from '../../../../stores/interfaces';
+import { EXCHANGE_STEPS } from '@/stores/Exchange';
+import { NETWORK_TYPE, TOKEN } from '@/stores/interfaces';
 import {
   getNetworkBaseToken,
   getNetworkIcon,
   getNetworkName,
-} from '../../../../stores/names';
-import { useStores } from '../../../../stores';
+} from '@/stores/names';
+import { useStores } from '@/stores';
 import { observer } from 'mobx-react';
 import styled from 'styled-components';
-import { ThemeContext } from '../../../../themes/ThemeContext';
+import { ThemeContext } from '@/themes/ThemeContext';
 
 interface OptionProps {
   checked?: boolean;

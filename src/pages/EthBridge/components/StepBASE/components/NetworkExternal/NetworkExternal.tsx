@@ -1,13 +1,13 @@
 import React, { useContext } from 'react';
-import { Text, Icon } from '../../../../../../components/Base';
+import { Text, Icon } from '@/components/Base';
 import { BridgeControl } from '../../../BridgeControl/BridgeControl';
 import { NetworkIcon } from '../../../NetworkIcon/NetworkIcon';
 import { Menu, Box } from 'grommet';
-import { useStores } from '../../../../../../stores';
-import { NETWORK_TYPE } from '../../../../../../stores/interfaces';
+import { useStores } from '@/stores';
+import { NETWORK_TYPE } from '@/stores/interfaces';
 import { observer } from 'mobx-react';
-import { ThemeContext } from '../../../../../../themes/ThemeContext';
-import { networks } from '../../../../../../configs';
+import { ThemeContext } from '@/themes/ThemeContext';
+import { networks } from '@/configs';
 
 interface NetworkMenuItemProps {
   network: string;

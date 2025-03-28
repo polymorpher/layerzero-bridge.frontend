@@ -1,22 +1,22 @@
 import React, { useRef, useCallback, useContext, useMemo } from 'react';
-import { DisableWrap, Text } from '../../../../../../components/Base';
+import { DisableWrap, Text } from '@/components/Base';
 import { BridgeControl } from '../../../BridgeControl/BridgeControl';
 import {
   isLess,
   isPositive,
   isRequired,
   NumberInput,
-} from '../../../../../../components/Form';
-import { formatWithSixDecimals, moreThanZero } from '../../../../../../utils';
-import { useStores } from '../../../../../../stores';
+} from '@/components/Form';
+import { formatWithSixDecimals, moreThanZero } from '@/utils';
+import { useStores } from '@/stores';
 import * as s from './TokenAmount.styl';
 import { observer } from 'mobx-react';
-import { EXCHANGE_MODE, TOKEN } from '../../../../../../stores/interfaces';
+import { EXCHANGE_MODE, TOKEN } from '@/stores/interfaces';
 import styled from 'styled-components';
 import cn from 'classnames';
-import { ThemeContext } from '../../../../../../themes/ThemeContext';
+import { ThemeContext } from '@/themes/ThemeContext';
 import { Box, Button } from 'grommet';
-import { getTokenConfig } from '../../../../../../configs';
+import { getTokenConfig } from '@/configs';
 import { Tip } from 'grommet/components/Tip';
 import { TipContent } from '@/components/TipContent';
 import { CircleQuestion } from 'grommet-icons';

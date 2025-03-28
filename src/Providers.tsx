@@ -5,10 +5,12 @@ import { Provider as MobxProvider } from 'mobx-react';
 import { ThemeProvider } from './themes/ThemeProvider';
 
 export const Providers: React.FC<React.PropsWithChildren> = ({ children }) => (
-  <StoresProvider stores={stores as any}>
+  <StoresProvider stores={stores}>
     <MobxProvider {...stores}>
       <ThemeProvider>
-        <Router history={stores.routing.history}>{children}</Router>
+        <Router location={stores.routing.location} navigator={stores.routing.history}>
+          {children}
+        </Router>
       </ThemeProvider>
     </MobxProvider>
   </StoresProvider>

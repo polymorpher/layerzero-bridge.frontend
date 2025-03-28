@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box } from 'grommet';
-import { Text } from '../../../../components/Base';
+import { Text } from '@/components/Base';
 
 interface Props {
   title: string | React.ReactNode;

@@ -1,14 +1,14 @@
 import React from 'react';
-import { Icon, Text } from '../../../../components/Base';
-import { Spinner } from '../../../../ui';
+import { Icon, Text } from '@/components/Base';
+import { Spinner } from '@/ui';
 import { Box } from 'grommet';
-import { EXCHANGE_MODE, TOKEN } from '../../../../stores/interfaces';
+import { EXCHANGE_MODE, TOKEN } from '@/stores/interfaces';
 import * as styles from '../../../Exchange/styles.styl';
 import { Steps } from '../../../Exchange/Steps';
-import { EXCHANGE_STEPS } from '../../../../stores/Exchange';
+import { EXCHANGE_STEPS } from '@/stores/Exchange';
 import { AddTokenPanel } from '../../../Exchange/AddTokenPanel';
 import { observer } from 'mobx-react';
-import { useStores } from '../../../../stores';
+import { useStores } from '@/stores';
 
 interface Props {}
 

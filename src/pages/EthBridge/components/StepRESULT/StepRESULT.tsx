@@ -5,10 +5,10 @@ import { Status } from '../Status/Status';
 import { Details } from '../../../Exchange/Details';
 import { Networks } from '../Networks/Networks';
 import cn from 'classnames';
-import { Button } from '../../../../components/Base';
+import { Button } from '@/components/Base';
 import { ethBridgeStore } from '../../EthBridgeStore';
-import { useStores } from '../../../../stores';
-import { Divider } from '../../../../components/Divider/Divider';
+import { useStores } from '@/stores';
+import { Divider } from '@/components/Divider/Divider';
 import { StepContainer } from '../StepContainer';
 
 interface Props {}

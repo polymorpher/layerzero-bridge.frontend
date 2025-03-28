@@ -1,18 +1,18 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { Box } from 'grommet/components/Box';
 import * as s from './TokenChooseModal.styl';
-import { Icon } from '../../../../components/Base';
+import { Icon } from '@/components/Base';
 import { Button } from 'grommet/components/Button';
-import { useStores } from '../../../../stores';
+import { useStores } from '@/stores';
 import { observer } from 'mobx-react';
 import { TextInput } from 'grommet';
 import { TokenHorizontal } from './components/TokenHorizontal';
-import { ITokenInfo, NETWORK_TYPE, TOKEN } from '../../../../stores/interfaces';
+import { ITokenInfo, NETWORK_TYPE, TOKEN } from '@/stores/interfaces';
 import styled from 'styled-components';
-import { LoadableContent } from '../../../../components/LoadableContent';
-import { buildTokenId, getTokenTypeName } from '../../../../utils/token';
-import { formatWithSixDecimals } from '../../../../utils';
-import { ModalContent } from '../../../../components/ModalContent';
+import { LoadableContent } from '@/components/LoadableContent';
+import { buildTokenId, getTokenTypeName } from '@/utils/token';
+import { formatWithSixDecimals } from '@/utils';
+import { ModalContent } from '@/components/ModalContent';
 
 interface Props {
   onClose?: () => void;

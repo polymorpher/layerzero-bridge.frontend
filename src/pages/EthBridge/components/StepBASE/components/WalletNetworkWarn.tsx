@@ -1,10 +1,10 @@
 import React, { useMemo } from 'react';
 import { StatusWarning } from 'grommet-icons';
-import { Text } from '../../../../../components/Base';
+import { Text } from '@/components/Base';
 import { Box } from 'grommet/components/Box';
-import { EXCHANGE_MODE, NETWORK_TYPE } from '../../../../../stores/interfaces';
-import { getNetworkName } from '../../../../../stores/names';
-import { useStores } from '../../../../../stores';
+import { EXCHANGE_MODE, NETWORK_TYPE } from '@/stores/interfaces';
+import { getNetworkName } from '@/stores/names';
+import { useStores } from '@/stores';
 import { observer } from 'mobx-react';
 
 interface Props {}
