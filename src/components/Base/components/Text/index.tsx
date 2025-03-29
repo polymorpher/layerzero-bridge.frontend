@@ -50,9 +50,12 @@ export interface ITextProps {
   className?: string;
   uppercase?: boolean;
   nowrap?: boolean;
+  children?: React.ReactNode;
 }
 
-const TextWrap = styled.div<ITextProps>`
+const TextWrap = styled.div.withConfig({
+  shouldForwardProp: props => props !== 'uppercase'
+})<ITextProps>`
   font-family: ${props => getFont(props.fontFamily, props.theme)}};
   font-size: ${props => getFontSize(props.size, props.theme)};
   font-weight: ${props => (props.bold ? '700' : '500')};

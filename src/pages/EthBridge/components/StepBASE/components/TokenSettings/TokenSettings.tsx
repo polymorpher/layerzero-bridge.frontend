@@ -1,15 +1,15 @@
 import React, { useCallback } from 'react';
 import { Box } from 'grommet';
 import { FormSearch, MoreVertical, Filter } from 'grommet-icons';
-import { Icon, Text } from '../../../../../../components/Base';
+import { Icon, Text } from '@/components/Base';
 import { Button } from 'grommet/components/Button';
 import * as s from './TokenSettings.styl';
-import { ModalRegister } from '../../../../../../modals';
-import { ModalIds } from '../../../../../../modals';
-import { useStores } from '../../../../../../stores';
+import { ModalRegister } from '@/modals';
+import { ModalIds } from '@/modals';
+import { useStores } from '@/stores';
 import { TokenSettingsModal } from '../../../TokenSettingsModal/TokenSettingsModal';
-import { NETWORK_TYPE, TOKEN } from '../../../../../../stores/interfaces';
-import { getNetworkBaseToken } from '../../../../../../stores/names';
+import { NETWORK_TYPE, TOKEN } from '@/stores/interfaces';
+import { getNetworkBaseToken } from '@/stores/names';
 
 interface Props {}
 

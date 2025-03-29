@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useEffect, useState } from 'react';
 import { Box, Grid } from 'grommet';
 import { observer } from 'mobx-react-lite';
-import { useStores } from 'stores';
+import { useStores } from '@/stores';
 import {
   Button,
   Checkbox,
@@ -10,7 +10,7 @@ import {
   Text,
   TextInput,
   Title,
-} from 'components/Base';
+} from '@/components/Base';
 import * as styles from './styles.styl';
 import { truncateAddressString } from '../../utils';
 import { NETWORK_TYPE, TOKEN } from '../../stores/interfaces';
@@ -118,7 +118,7 @@ export const ERC20Select = observer<{ type: TOKEN; options?: boolean }>(
                   className={styles.addressLink}
                   href={
                     exchange.token === TOKEN.HRC20
-                      ? `${process.env.HMY_EXPLORER_URL}/address/${erc20Select.tokenAddress}`
+                      ? `${import.meta.env.VITE_HMY_EXPLORER_URL}/address/${erc20Select.tokenAddress}`
                       : `${exchange.config.explorerURL}/token/${erc20Select.tokenAddress}`
                   }
                   target="_blank"

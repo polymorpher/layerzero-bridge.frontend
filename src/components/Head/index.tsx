@@ -3,7 +3,7 @@ import styled, { withTheme } from 'styled-components';
 import { Box, BoxProps, Text } from 'grommet';
 import { useHistory } from 'react-router';
 import { observer } from 'mobx-react-lite';
-import { IStyledChildrenProps } from 'interfaces';
+import { IStyledChildrenProps } from '@/interfaces';
 import { Title } from '../Base';
 import { useStores } from '../../stores';
 import * as styles from './styles.styl';
@@ -17,7 +17,7 @@ const MainLogo = styled.img`
   margin-bottom: 4px;
 `;
 
-const getTokenServiceEnable = process.env.GET_TOKENS_SERVICE === 'true';
+const getTokenServiceEnable = import.meta.env.VITE_GET_TOKENS_SERVICE === 'true';
 
 export const Head: React.FC<IStyledChildrenProps<BoxProps>> = withTheme(
   observer(({ theme, ...props }: IStyledChildrenProps<BoxProps>) => {

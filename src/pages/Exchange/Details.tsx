@@ -2,9 +2,9 @@ import * as React from 'react';
 import { useState } from 'react';
 import { Box, Image } from 'grommet';
 import { observer } from 'mobx-react-lite';
-import { Icon, Text } from 'components/Base';
-import { useStores } from 'stores';
-import { formatWithSixDecimals } from 'utils';
+import { Icon, Text } from '@/components/Base';
+import { useStores } from '@/stores';
+import { formatWithSixDecimals } from '@/utils';
 import { EXCHANGE_MODE, NETWORK_TYPE, TOKEN } from '../../stores/interfaces';
 import { Price } from '../Explorer/Components';
 import { getNetworkBaseToken, getNetworkName } from '../../stores/names';
@@ -179,7 +179,7 @@ export const Details = observer<{ showTotal?: boolean; children?: any }>(
         <AssetRowAddress
           label="ONE address"
           address={exchange.transaction.oneAddress}
-          link={`${process.env.HMY_EXPLORER_URL}/address/${getBech32Address(
+          link={`${import.meta.env.VITE_HMY_EXPLORER_URL}/address/${getBech32Address(
             exchange.transaction.oneAddress,
           )}?activeTab=3`}
         />

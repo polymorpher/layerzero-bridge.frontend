@@ -13,20 +13,29 @@ import { HmyMethodsHRC1155 } from './HmyMethodsHRC1155';
 import { HmyMethodsHRC1155Web3 } from './HmyMethodsHRC1155Web3';
 import { HmyMethodsERC1155 } from './HmyMethodsERC1155';
 import { HmyMethodsERC1155Web3 } from './HmyMethodsERC1155Web3';
-const { Harmony } = require('@harmony-js/core');
-const { ChainType } = require('@harmony-js/utils');
+import { Harmony } from '@harmony-js/core/dist/harmony';
+import { ChainType } from '@harmony-js/utils/dist/chain';
+import * as hmyBUSDJson from '../out/MyERC20';
+import * as hmyBUSDManagerJson from '../out/LINKHmyManager';
+import * as hmyManagerJson from '../out/HmyManagerERC20';
+import * as hmyManagerJsonHrc20 from '../out/HmyManagerHRC20';
+import * as hmyManagerJsonHrc721 from '../out/NFTHmyManager';
+import * as hmyManagerJsonHrc1155 from '../out/HRC1155HmyManager';
+import * as hmyManagerJsonErc1155 from '../out/ERC1155HmyManager';
+import * as hmyManagerJson721 from '../out/ERC721HmyManager';
+import * as hmyDepositJson from '../out/Deposit';
 
 export const hmy = new Harmony(
   // let's assume we deploy smart contract to this end-point URL
-  process.env.HMY_NODE_URL,
+  String(import.meta.env.VITE_HMY_NODE_URL),
   {
     chainType: ChainType.Harmony,
-    chainId: Number(process.env.HMY_CHAIN_ID),
+    chainId: Number(import.meta.env.VITE_HMY_CHAIN_ID),
   },
 );
 
 // @ts-ignore
-const web3URL = window.ethereum ? window.ethereum : process.env.HMY_NODE_URL;
+const web3URL = window.ethereum ? window.ethereum : import.meta.env.VITE_HMY_NODE_URL;
 
 export const hmyWeb3 = new Web3(web3URL);
 
@@ -65,103 +74,94 @@ const createMethods = (
   };
 };
 
-const hmyBUSDJson = require('../out/MyERC20');
-const hmyBUSDManagerJson = require('../out/LINKHmyManager');
 const hmyBUSDContract = createContract(
   hmyBUSDJson.abi,
-  process.env.HMY_BUSD_CONTRACT,
+  import.meta.env.VITE_HMY_BUSD_CONTRACT,
 );
 const hmyBUSDManagerContract = createContract(
   hmyBUSDManagerJson.abi,
-  process.env.HMY_BUSD_MANAGER_CONTRACT,
+  import.meta.env.VITE_HMY_BUSD_MANAGER_CONTRACT,
 );
 const hmyLINKContract = createContract(
   hmyBUSDJson.abi,
-  process.env.HMY_LINK_CONTRACT,
+  import.meta.env.VITE_HMY_LINK_CONTRACT,
 );
 const hmyLINKManagerContract = createContract(
   hmyBUSDManagerJson.abi,
-  process.env.HMY_LINK_MANAGER_CONTRACT,
+  import.meta.env.VITE_HMY_LINK_MANAGER_CONTRACT,
 );
 
 export const hmyMethodsBUSD = createMethods(
   hmyBUSDContract,
   hmyBUSDManagerContract,
-  process.env.HMY_BUSD_MANAGER_CONTRACT,
+  import.meta.env.VITE_HMY_BUSD_MANAGER_CONTRACT,
 );
 export const hmyMethodsLINK = createMethods(
   hmyLINKContract,
   hmyLINKManagerContract,
-  process.env.HMY_LINK_MANAGER_CONTRACT,
+  import.meta.env.VITE_HMY_LINK_MANAGER_CONTRACT,
 );
-
-const hmyManagerJson = require('../out/HmyManagerERC20');
-const hmyManagerJsonHrc20 = require('../out/HmyManagerHRC20');
-const hmyManagerJsonHrc721 = require('../out/NFTHmyManager');
-const hmyManagerJsonHrc1155 = require('../out/HRC1155HmyManager');
-const hmyManagerJsonErc1155 = require('../out/ERC1155HmyManager');
-const hmyManagerJson721 = require('../out/ERC721HmyManager');
 
 const hmyManagerContract = createContract(
   hmyManagerJson.abi,
-  process.env.HMY_ERC20_MANAGER_CONTRACT,
+  import.meta.env.VITE_HMY_ERC20_MANAGER_CONTRACT,
 );
 
 // const hmySubManagerContract = createContract(
 //   hmyManagerJson.abi,
-//   process.env.HMY_ERC20_SUB_MANAGER_CONTRACT,
+//   import.meta.env.VITE_HMY_ERC20_SUB_MANAGER_CONTRACT,
 // );
 
 const hmyManagerContractBEP20 = createContract(
   hmyManagerJson.abi,
-  process.env.HMY_BRIDGE_MANAGER,
+  import.meta.env.VITE_HMY_BRIDGE_MANAGER,
 );
 
 // const hmySubManagerContractBEP20 = createContract(
 //   hmyManagerJson.abi,
-//   process.env.HMY_BEP20_SUB_MANAGER_CONTRACT,
+//   import.meta.env.VITE_HMY_BEP20_SUB_MANAGER_CONTRACT,
 // );
 
 const hmyManagerContractHrc20 = createContract(
   hmyManagerJsonHrc20.abi,
-  process.env.HMY_HRC20_MANAGER_CONTRACT,
+  import.meta.env.VITE_HMY_HRC20_MANAGER_CONTRACT,
 );
 
 const hmyManagerContractHrc721 = createContract(
   hmyManagerJsonHrc721.abi,
-  process.env.HMY_HRC721_MANAGER_CONTRACT,
+  import.meta.env.VITE_HMY_HRC721_MANAGER_CONTRACT,
 );
 
 const hmyManagerContractHrc1155 = createContract(
   hmyManagerJsonHrc1155.abi,
-  process.env.HMY_HRC1155_MANAGER_CONTRACT,
+  import.meta.env.VITE_HMY_HRC1155_MANAGER_CONTRACT,
 );
 
 const hmyManagerContractErc1155 = createContract(
   hmyManagerJsonErc1155.abi,
-  process.env.HMY_ERC1155_MANAGER_CONTRACT,
+  import.meta.env.VITE_HMY_ERC1155_MANAGER_CONTRACT,
 );
 
 const hmyManagerContractBHrc20 = createContract(
   hmyManagerJsonHrc20.abi,
-  process.env.HMY_BRIDGE_MANAGER,
+  import.meta.env.VITE_HMY_BRIDGE_MANAGER,
 );
 
 const hmyManagerContract721 = createContract(
   hmyManagerJson721.abi,
-  process.env.HMY_ERC721_MANAGER_CONTRACT,
+  import.meta.env.VITE_HMY_ERC721_MANAGER_CONTRACT,
 );
 
 export const hmyMethodsERC20Hmy = new HmyMethodsERC20({
   hmy: hmy,
   hmyManagerContract: hmyManagerContract.hmyContract,
-  hmyTokenManagerAddress: process.env.TOKEN_MANAGER_CONTRACT,
+  hmyTokenManagerAddress: import.meta.env.VITE_TOKEN_MANAGER_CONTRACT,
 });
 
 export const hmyMethodsBEP20Hmy = new HmyMethodsERC20({
   hmy: hmy,
   hmyManagerContract: hmyManagerContractBEP20.hmyContract,
-  hmyTokenManagerAddress: process.env.TOKEN_MANAGER_CONTRACT_FOR_BSC,
+  hmyTokenManagerAddress: import.meta.env.VITE_TOKEN_MANAGER_CONTRACT_FOR_BSC,
 });
 
 // export const hmyMethodsERC20SUBHmy = new HmyMethodsERC20({
@@ -192,7 +192,7 @@ export const hmyMethodsHRC1155Hmy = new HmyMethodsHRC1155({
 export const hmyMethodsERC1155Hmy = new HmyMethodsERC1155({
   hmy: hmy,
   hmyManagerContract: hmyManagerContractErc1155.hmyContract,
-  hmyTokenManagerAddress: process.env.HMY_ERC1155_MANAGER_TOKEN,
+  hmyTokenManagerAddress: import.meta.env.VITE_HMY_ERC1155_MANAGER_TOKEN,
 });
 
 export const hmyMethodsBHRC20Hmy = new HmyMethodsHRC20({
@@ -203,71 +203,71 @@ export const hmyMethodsBHRC20Hmy = new HmyMethodsHRC20({
 export const hmyMethodsERC721Hmy = new HmyMethodsERC20({
   hmy: hmy,
   hmyManagerContract: hmyManagerContract721.hmyContract,
-  hmyTokenManagerAddress: process.env.NFT_TOKEN_MANAGER_CONTRACT,
+  hmyTokenManagerAddress: import.meta.env.VITE_NFT_TOKEN_MANAGER_CONTRACT,
 });
 
 export const hmyMethodsERC20Web3 = new HmyMethodsERC20Web3({
   web3: hmyWeb3,
   hmyManagerContract: hmyManagerContract.web3Contract,
-  hmyManagerContractAddress: process.env.HMY_ERC20_MANAGER_CONTRACT,
-  hmyTokenManagerAddress: process.env.TOKEN_MANAGER_CONTRACT,
+  hmyManagerContractAddress: import.meta.env.VITE_HMY_ERC20_MANAGER_CONTRACT,
+  hmyTokenManagerAddress: import.meta.env.VITE_TOKEN_MANAGER_CONTRACT,
 });
 
 export const hmyMethodsBEP20Web3 = new HmyMethodsERC20Web3({
   web3: hmyWeb3,
   hmyManagerContract: hmyManagerContractBEP20.web3Contract,
-  hmyManagerContractAddress: process.env.HMY_BRIDGE_MANAGER,
-  hmyTokenManagerAddress: process.env.TOKEN_MANAGER_CONTRACT_FOR_BSC,
+  hmyManagerContractAddress: import.meta.env.VITE_HMY_BRIDGE_MANAGER,
+  hmyTokenManagerAddress: import.meta.env.VITE_TOKEN_MANAGER_CONTRACT_FOR_BSC,
 });
 
 // export const hmyMethodsSubERC20Web3 = new HmyMethodsERC20Web3({
 //   web3: hmyWeb3,
 //   hmyManagerContract: hmySubManagerContract.web3Contract,
-//   hmyManagerContractAddress: process.env.HMY_ERC20_SUB_MANAGER_CONTRACT,
+//   hmyManagerContractAddress: import.meta.env.VITE_HMY_ERC20_SUB_MANAGER_CONTRACT,
 // });
 
 // export const hmyMethodsSubBEP20Web3 = new HmyMethodsERC20Web3({
 //   web3: hmyWeb3,
 //   hmyManagerContract: hmySubManagerContractBEP20.web3Contract,
-//   hmyManagerContractAddress: process.env.HMY_BEP20_SUB_MANAGER_CONTRACT,
+//   hmyManagerContractAddress: import.meta.env.VITE_HMY_BEP20_SUB_MANAGER_CONTRACT,
 // });
 
 export const hmyMethodsHRC20Web3 = new HmyMethodsHRC20Web3({
   web3: hmyWeb3,
   hmyManagerContract: hmyManagerContractHrc20.web3Contract,
-  hmyManagerContractAddress: process.env.HMY_HRC20_MANAGER_CONTRACT,
+  hmyManagerContractAddress: import.meta.env.VITE_HMY_HRC20_MANAGER_CONTRACT,
 });
 
 export const hmyMethodsHRC721Web3 = new HmyMethodsHRC721Web3({
   web3: hmyWeb3,
   hmyManagerContract: hmyManagerContractHrc721.web3Contract,
-  hmyManagerContractAddress: process.env.HMY_HRC721_MANAGER_CONTRACT,
+  hmyManagerContractAddress: import.meta.env.VITE_HMY_HRC721_MANAGER_CONTRACT,
 });
 
 export const hmyMethodsHRC1155Web3 = new HmyMethodsHRC1155Web3({
   web3: hmyWeb3,
   hmyManagerContract: hmyManagerContractHrc1155.web3Contract,
-  hmyManagerContractAddress: process.env.HMY_HRC1155_MANAGER_CONTRACT,
+  hmyManagerContractAddress: import.meta.env.VITE_HMY_HRC1155_MANAGER_CONTRACT,
 });
 
 export const hmyMethodsERC1155Web3 = new HmyMethodsERC1155Web3({
   web3: hmyWeb3,
   hmyManagerContract: hmyManagerContractHrc1155.web3Contract,
-  hmyManagerContractAddress: process.env.HMY_ERC1155_MANAGER_CONTRACT,
-  hmyTokenManagerAddress: process.env.HMY_ERC1155_MANAGER_TOKEN,
+  hmyManagerContractAddress: import.meta.env.VITE_HMY_ERC1155_MANAGER_CONTRACT,
+  hmyTokenManagerAddress: import.meta.env.VITE_HMY_ERC1155_MANAGER_TOKEN,
 });
 
 export const hmyMethodsBHRC20Web3 = new HmyMethodsHRC20Web3({
   web3: hmyWeb3,
   hmyManagerContract: hmyManagerContractBHrc20.web3Contract,
-  hmyManagerContractAddress: process.env.HMY_BRIDGE_MANAGER,
+  hmyManagerContractAddress: import.meta.env.VITE_HMY_BRIDGE_MANAGER,
 });
 
 export const hmyMethodsERC721Web3 = new HmyMethodsERC20Web3({
   web3: hmyWeb3,
   hmyManagerContract: hmyManagerContract721.web3Contract,
-  hmyManagerContractAddress: process.env.HMY_ERC721_MANAGER_CONTRACT,
-  hmyTokenManagerAddress: process.env.NFT_TOKEN_MANAGER_CONTRACT,
+  hmyManagerContractAddress: import.meta.env.VITE_HMY_ERC721_MANAGER_CONTRACT,
+  hmyTokenManagerAddress: import.meta.env.VITE_NFT_TOKEN_MANAGER_CONTRACT,
 });
 
 export const hmyMethodsERC20 = {
@@ -320,10 +320,9 @@ export const hmyMethodsERC721 = {
   hmyMethodsWeb3: hmyMethodsERC721Web3,
 };
 
-const hmyDepositJson = require('../out/Deposit');
 const hmyDepositContract = createContract(
   hmyDepositJson.abi,
-  process.env.HMY_DEPOSIT_CONTRACT,
+  import.meta.env.VITE_HMY_DEPOSIT_CONTRACT,
 );
 
 const hmyMethodsDepositHmy = new HmyMethodsDeposit({

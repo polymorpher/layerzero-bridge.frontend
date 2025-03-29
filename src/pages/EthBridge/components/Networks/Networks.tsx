@@ -1,14 +1,14 @@
 import React from 'react';
 import { Box } from 'grommet/components/Box';
 import { BridgeControl } from '../BridgeControl/BridgeControl';
-import { useStores } from '../../../../stores';
-import { EXCHANGE_MODE, NETWORK_TYPE } from '../../../../stores/interfaces';
+import { useStores } from '@/stores';
+import { EXCHANGE_MODE, NETWORK_TYPE } from '@/stores/interfaces';
 import { NetworkIcon } from '../NetworkIcon/NetworkIcon';
 import { NetworkHarmony } from '../StepBASE/components/NetworkHarmony/NetworkHarmony';
 import { observer } from 'mobx-react';
-import { Text } from '../../../../components/Base';
+import { Text } from '@/components/Base';
 import { Transaction } from 'grommet-icons';
-import { networks } from '../../../../configs';
+import { networks } from '@/configs';
 
 interface NetworkProps {
   mode: EXCHANGE_MODE;

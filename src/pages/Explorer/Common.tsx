@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { IOperation, TOKEN } from 'stores/interfaces';
-import { formatWithSixDecimals } from 'utils';
+import { IOperation, TOKEN } from '@/stores/interfaces';
+import { formatWithSixDecimals } from '@/utils';
 import * as styles from './styles.styl';
 import { observer } from 'mobx-react-lite';
 import { useStores } from '../../stores';
@@ -51,7 +51,7 @@ export const getColumns = (
     //   render: value => (
     //     <a
     //       className={styles.addressLink}
-    //       href={`${process.env.ETH_EXPLORER_URL}/address/${value}`}
+    //       href={`${import.meta.env.VITE_ETH_EXPLORER_URL}/address/${value}`}
     //       target="_blank"
     //     >
     //       {truncateAddressString(value, 5)}
@@ -66,7 +66,7 @@ export const getColumns = (
     //   render: value => (
     //     <a
     //       className={styles.addressLink}
-    //       href={`${process.env.HMY_EXPLORER_URL}/address/${value}`}
+    //       href={`${import.meta.env.VITE_HMY_EXPLORER_URL}/address/${value}`}
     //       target="_blank"
     //     >
     //       {truncateAddressString(value, 5)}

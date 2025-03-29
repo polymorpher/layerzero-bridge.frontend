@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import { Button } from 'grommet/components/Button';
-import { useStores } from '../../../../../../stores';
-import { EXCHANGE_MODE } from '../../../../../../stores/interfaces';
+import { useStores } from '@/stores';
+import { EXCHANGE_MODE } from '@/stores/interfaces';
 import { Transaction } from 'grommet-icons';
 import { observer } from 'mobx-react';
 

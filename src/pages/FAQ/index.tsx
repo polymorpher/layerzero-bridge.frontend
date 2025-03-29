@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Box } from 'grommet';
-import { Title, Text } from 'components/Base';
+import { Title, Text } from '@/components/Base';
 import * as styles from './faq-styles.styl';
-import { LayoutCommon } from 'components/Layouts/LayoutCommon/LayoutCommon';
+import { LayoutCommon } from '@/components/Layouts/LayoutCommon/LayoutCommon';
 import { faqConfig } from './faqConfig';
 
 export const FAQPage = () => {

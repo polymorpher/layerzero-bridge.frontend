@@ -1,10 +1,10 @@
 import { IIdentityTokenInfo, ITokenInfo, NETWORK_TYPE } from './interfaces';
 import { IStores } from './index';
-import * as services from 'services';
+import * as services from '@/services';
 import { ListStoreConstructor } from './core/ListStoreConstructor';
 import { computed, observable } from 'mobx';
 import * as _ from 'lodash';
-import { getIdentityTokensInfo } from 'services';
+import { getIdentityTokensInfo } from '@/services';
 
 export class IdentityTokens extends ListStoreConstructor<IIdentityTokenInfo> {
   @observable fullTokensList = [];

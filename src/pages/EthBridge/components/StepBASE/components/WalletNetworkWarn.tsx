@@ -1,10 +1,10 @@
 import React, { useMemo } from 'react';
 import { StatusWarning } from 'grommet-icons';
-import { Text } from '../../../../../components/Base';
+import { Text } from '@/components/Base';
 import { Box } from 'grommet/components/Box';
-import { EXCHANGE_MODE, NETWORK_TYPE } from '../../../../../stores/interfaces';
-import { getNetworkName } from '../../../../../stores/names';
-import { useStores } from '../../../../../stores';
+import { EXCHANGE_MODE, NETWORK_TYPE } from '@/stores/interfaces';
+import { getNetworkName } from '@/stores/names';
+import { useStores } from '@/stores';
 import { observer } from 'mobx-react';
 
 interface Props {}
@@ -30,10 +30,10 @@ export const WalletNetworkWarn: React.FC<Props> = observer(() => {
 
   const externalSubNetworkName =
     exchange.network === NETWORK_TYPE.ETHEREUM
-      ? process.env.NETWORK === 'mainnet'
+      ? import.meta.env.VITE_NETWORK === 'mainnet'
         ? 'mainnet'
         : 'kovan'
-      : process.env.NETWORK === 'mainnet'
+      : import.meta.env.VITE_NETWORK === 'mainnet'
       ? 'mainnet'
       : 'testnet';
 
@@ -47,7 +47,7 @@ export const WalletNetworkWarn: React.FC<Props> = observer(() => {
           {externalNetworkName}: {externalSubNetworkName}
         </span>
         . Please change network to {externalSubNetworkName} for transfer&nbsp;
-        {externalNetworkName}&nbsp;->&nbsp;{destinationNetworkName} with
+        {externalNetworkName}&nbsp;-&gt;&nbsp;{destinationNetworkName} with
         MetaMask.
       </Text>
     </Box>

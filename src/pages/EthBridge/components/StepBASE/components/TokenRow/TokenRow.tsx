@@ -1,17 +1,17 @@
 import React, { useRef, useState } from 'react';
 import { Box, Tip } from 'grommet';
-import { Text } from '../../../../../../components/Base';
+import { Text } from '@/components/Base';
 import { TokenControl } from '../TokenControl/TokenControl';
 import { TokenAmount } from '../TokenAmount/TokenAmount';
 import { observer } from 'mobx-react';
-import { useStores } from '../../../../../../stores';
+import { useStores } from '@/stores';
 import { BridgeControl } from '../../../BridgeControl/BridgeControl';
-import { TOKEN } from '../../../../../../stores/interfaces';
-import { truncateAddressString } from '../../../../../../utils';
+import { TOKEN } from '@/stores/interfaces';
+import { truncateAddressString } from '@/utils';
 import { CircleQuestion, CircleInformation } from 'grommet-icons';
-import { TipContent } from '../../../../../../components/TipContent';
-import { Link } from 'components/Link';
-import { getTokenConfig } from '../../../../../../configs';
+import { TipContent } from '@/components/TipContent';
+import { Link } from '@/components/Link';
+import { getTokenConfig } from '@/configs';
 import { ENSInput } from '../ENSInput';
 
 const TokenAddresses = observer(() => {
@@ -28,12 +28,12 @@ const TokenAddresses = observer(() => {
 
   const originAddressLink =
     exchange.token === TOKEN.HRC20
-      ? `${process.env.HMY_EXPLORER_URL}/address/${tokenConfig.hrc20Address}`
+      ? `${import.meta.env.VITE_HMY_EXPLORER_URL}/address/${tokenConfig.hrc20Address}`
       : `${exchange.config.explorerURL}/token/${tokenConfig.erc20Address}`;
 
   const mappedAddressLink =
     exchange.token !== TOKEN.HRC20
-      ? `${process.env.HMY_EXPLORER_URL}/address/${tokenConfig.hrc20Address}?activeTab=3`
+      ? `${import.meta.env.VITE_HMY_EXPLORER_URL}/address/${tokenConfig.hrc20Address}?activeTab=3`
       : `${exchange.config.explorerURL}/token/${tokenConfig.erc20Address}`;
 
   return (

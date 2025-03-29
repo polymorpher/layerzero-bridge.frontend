@@ -1,4 +1,4 @@
-import { NETWORK_TYPE } from "stores/interfaces";
+import { NETWORK_TYPE } from "@/stores/interfaces";
 import { numberToHex } from "./utils";
 import { NetworkConfig } from "./interfaces";
 

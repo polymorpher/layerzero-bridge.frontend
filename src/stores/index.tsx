@@ -1,4 +1,4 @@
-import RouterStore from 'stores/RouterStore';
+import RouterStore from '@/stores/RouterStore';
 import { ActionModalsStore } from './ActionModalsStore';
 import { UserStoreEx } from './UserStore';
 import { UserStoreMetamask } from './UserStoreMetamask';
@@ -51,7 +51,7 @@ stores.erc20Select = new Erc20SelectStore(stores);
 stores.uiConfig = new UIConfig(stores);
 stores.ethBridgeStore = ethBridgeStore;
 
-if (!process.env.production) {
+if (!import.meta.env.VITE_production) {
   window.stores = stores;
 }
 

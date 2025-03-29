@@ -11,8 +11,8 @@ import {
   TFullConfig,
   TOKEN,
 } from '../interfaces';
-import * as operationService from 'services';
-import { threshold, validators } from 'services';
+import * as operationService from '@/services';
+import { threshold, validators } from '@/services';
 
 import * as contract from '../../blockchain-bridge';
 import {
@@ -191,7 +191,7 @@ export class Exchange extends StoreConstructor {
             ) {
               throw new Error(
                 `Your MetaMask in on the wrong network. Please switch on ${getNetworkName(this.stores.exchange.network)
-                } ${process.env.NETWORK} and try again!`,
+                } ${import.meta.env.VITE_NETWORK} and try again!`,
               );
             }
 
@@ -202,7 +202,7 @@ export class Exchange extends StoreConstructor {
                 !this.stores.user.isAuthorized)
             ) {
               throw new Error(
-                `Your MetaMask in on the wrong network. Please switch on Harmony ${process.env.NETWORK} and try again!`,
+                `Your MetaMask in on the wrong network. Please switch on Harmony ${import.meta.env.VITE_NETWORK} and try again!`,
               );
             }
 
@@ -539,7 +539,7 @@ export class Exchange extends StoreConstructor {
     }
 
     if (token === TOKEN.ONE) {
-      this.stores.user.setHRC20Mapping(process.env.ONE_HRC20, true);
+      this.stores.user.setHRC20Mapping(import.meta.env.VITE_ONE_HRC20, true);
     }
   }
 
@@ -1262,7 +1262,7 @@ export class Exchange extends StoreConstructor {
                   width: '500px',
                   showOther: true,
                   onApply: () => {
-                    res();
+                    res(1);
                     return Promise.resolve();
                   },
                   onClose: () => {

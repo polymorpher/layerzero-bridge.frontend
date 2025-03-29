@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { action, observable } from 'mobx';
-import { guid } from 'utils';
+import { guid } from '@/utils';
 import { statusFetching } from '../constants';
 import { ButtonType } from 'grommet';
 

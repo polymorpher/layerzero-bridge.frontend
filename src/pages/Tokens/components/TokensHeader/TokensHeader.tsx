@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box } from 'grommet';
-import { Text } from '../../../../components/Base';
-import { formatZeroDecimals } from '../../../../utils';
+import { Text } from '@/components/Base';
+import { formatZeroDecimals } from '@/utils';
 
 interface Props {
   lastUpdate: number;

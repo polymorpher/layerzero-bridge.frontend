@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useState } from 'react';
 import detectEthereumProvider from '@metamask/detect-provider';
 import Web3 from 'web3';
-const BN = require('bn.js');
+import BN from 'bn.js';
 
 export const TransactionExample = () => {
   const [account, setAccount] = useState('');

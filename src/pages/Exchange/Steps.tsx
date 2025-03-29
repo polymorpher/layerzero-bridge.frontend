@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { Box } from 'grommet';
 import { observer } from 'mobx-react-lite';
-import { ITextProps, Text } from 'components/Base';
-import { Error } from 'ui';
+import { ITextProps, Text } from '@/components/Base';
+import { Error } from '@/ui';
 import cn from 'classnames';
 import * as styles from './feeds.styl';
-import { useStores } from 'stores';
+import { useStores } from '@/stores';
 import {
   ACTION_TYPE,
   EXCHANGE_MODE,
@@ -13,7 +13,7 @@ import {
   IOperation,
   STATUS,
   TOKEN,
-} from 'stores/interfaces';
+} from '@/stores/interfaces';
 import { dateTimeFormat, truncateAddressString } from '../../utils';
 import { getStepsTitle } from './steps-constants';
 import axios from 'axios';
@@ -190,7 +190,7 @@ const StepRow = observer(
     const explorerUrl =
       (isEth(action.type)
         ? exchange.config.explorerURL
-        : process.env.HMY_EXPLORER_URL) + '/tx/';
+        : import.meta.env.VITE_HMY_EXPLORER_URL) + '/tx/';
 
     return (
       <Box
@@ -268,7 +268,7 @@ const StepRow = observer(
               <Box>
                 <a
                   href={
-                    process.env.HMY_EXPLORER_URL + '/address/' + hrc20Address
+                    import.meta.env.VITE_HMY_EXPLORER_URL + '/address/' + hrc20Address
                   }
                   target="_blank"
                 >

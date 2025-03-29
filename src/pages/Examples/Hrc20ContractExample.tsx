@@ -3,7 +3,7 @@ import { useState } from 'react';
 import detectEthereumProvider from '@metamask/detect-provider';
 import Web3 from 'web3';
 import { mulDecimals } from '../../utils';
-const BN = require('bn.js');
+import BN from 'bn.js';
 
 export const Hrc20ContractExample = () => {
   const [account, setAccount] = useState('');

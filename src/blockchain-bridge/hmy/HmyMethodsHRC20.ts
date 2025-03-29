@@ -4,6 +4,8 @@ import { connectToOneWallet } from './helpers';
 import { mulDecimals } from '../../utils';
 import { getAddress } from '@harmony-js/crypto';
 import BN from 'bn.js';
+import * as tokenJson from '../out/MyERC20';
+import * as token721Json from '../out/MyERC721';
 
 interface IHmyMethodsInitParams {
   hmy: Harmony;
@@ -15,7 +17,7 @@ export class HmyMethodsHRC20 {
   private hmy: Harmony;
   private hmyManagerContract: Contract;
   private options = {
-    gasPrice: Number(process.env.GAS_PRICE),
+    gasPrice: Number(import.meta.env.VITE_GAS_PRICE),
     gasLimit: 6721900,
   };
 
@@ -29,7 +31,6 @@ export class HmyMethodsHRC20 {
   }
 
   approveHmyManger = (hrc20Address, amount, decimals, sendTxCallback?) => {
-    const tokenJson = require('../out/MyERC20');
     const hmyTokenContract = this.hmy.contracts.createContract(
       tokenJson.abi,
       hrc20Address,
@@ -61,7 +62,6 @@ export class HmyMethodsHRC20 {
   };
 
   checkHmyBalance = async (hrc20Address, addr: string): Promise<BN> => {
-    const tokenJson = require('../out/MyERC20');
     const hmyTokenContract = this.hmy.contracts.createContract(
       tokenJson.abi,
       hrc20Address,
@@ -129,7 +129,6 @@ export class HmyMethodsHRC20 {
   };
 
   tokenDetails = async erc20Address => {
-    const tokenJson = require('../out/MyERC20');
     const erc20Contract = this.hmy.contracts.createContract(
       tokenJson.abi,
       erc20Address,
@@ -148,9 +147,8 @@ export class HmyMethodsHRC20 {
   };
 
   token721Details = async erc721Address => {
-    const tokenJson = require('../out/MyERC721');
     const erc20Contract = this.hmy.contracts.createContract(
-      tokenJson.abi,
+      token721Json.abi,
       erc721Address,
     );
 
@@ -161,8 +159,6 @@ export class HmyMethodsHRC20 {
   };
 
   allowance = async (addr: string, erc20Address: string) => {
-    const tokenJson = require('../out/MyERC20');
-
     const hmyTokenContract = this.hmy.contracts.createContract(
       tokenJson.abi,
       erc20Address,

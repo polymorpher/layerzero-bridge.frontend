@@ -3,12 +3,13 @@ import { useEffect } from 'react';
 import { Box } from 'grommet';
 
 import { observer } from 'mobx-react-lite';
-import { useStores } from 'stores';
-import { TOKEN } from 'stores/interfaces';
+import { useStores } from '@/stores';
+import { TOKEN } from '@/stores/interfaces';
 import { LayoutCommon } from '../../components/Layouts/LayoutCommon/LayoutCommon';
 import { ethBridgeStore } from './EthBridgeStore';
 import { StepManager } from './components/StepManager/StepManager';
 import { Form } from '../../components/Form';
+import { useParams } from 'react-router';
 
 export const EthBridge = observer((props: any) => {
   const {
@@ -20,17 +21,19 @@ export const EthBridge = observer((props: any) => {
     erc20Select,
   } = useStores();
 
+  const params = useParams()
+
   useEffect(() => {
     tokens.init();
     tokens.fetch();
   }, []);
 
   useEffect(() => {
-    if (!props.match.params.token) {
+    if (!params.token) {
       return;
     }
 
-    const tokenTypeFromUrl = props.match.params.token;
+    const tokenTypeFromUrl = params.token;
 
     const token = exchange.getDefaultToken();
 
@@ -48,7 +51,7 @@ export const EthBridge = observer((props: any) => {
     erc20Select.setToken(token.erc20Address);
 
     if (TOKEN.ETH === tokenTypeFromUrl) {
-      user.setHRC20Token(process.env.ETH_HRC20);
+      user.setHRC20Token(import.meta.env.VITE_ETH_HRC20);
       userMetamask.setTokenDetails({
         name: 'ETH',
         decimals: '18',
@@ -57,9 +60,9 @@ export const EthBridge = observer((props: any) => {
       });
     }
 
-    if (props.match.params.operationId) {
-      exchange.setOperationId(props.match.params.operationId);
-      exchange.sendOperation(props.match.params.operationId);
+    if (params.operationId) {
+      exchange.setOperationId(params.operationId);
+      exchange.sendOperation(params.operationId);
     }
   }, []);
 

@@ -1,14 +1,25 @@
 import { createBrowserHistory } from 'history';
 import { generatePath } from 'react-router';
 import qs from 'qs';
-import { RouterStore, syncHistoryWithStore } from 'mobx-react-router';
+import { RouterStore, syncHistoryWithStore } from '@ibm/mobx-react-router';
 
-export default class CustomRouterStore extends RouterStore {
+export default class CustomRouterStore {
+  protected store = new RouterStore()
+
   constructor() {
-    super();
     const browserHistory = createBrowserHistory();
 
-    this.history = syncHistoryWithStore(browserHistory, this);
+    this.store.history = syncHistoryWithStore(browserHistory, this.store);
+
+    return new Proxy(this, {
+      get(target, prop, receiver) {
+        if (prop in target) {
+          return Reflect.get(target, prop, receiver);
+        }
+        const value = target.store[prop]
+        return typeof value === "function" ? value.bind(target.store) : value;
+      },
+    });
   }
 
   generatePath(
@@ -31,28 +42,28 @@ export default class CustomRouterStore extends RouterStore {
     queryParams: Record<string, unknown> = {},
   ) {
     const url = this.generatePath(path, params, queryParams);
-    this.push(url);
+    this.store.push(url);
   }
 
   goToModal(modalId: string, params?: Record<string, unknown>) {
     const qp = { modal: { id: modalId, ...params } };
     const query = qs.stringify(qp);
-    this.push(`${this.location.pathname}?${query}`);
+    this.store.push(`${this.store.location.pathname}?${query}`);
   }
 
   closeModal(replace: boolean = true) {
     if (replace) {
-      this.replace(this.location.pathname);
+      this.store.replace(this.store.location.pathname);
       return;
     }
 
-    const { modal, ...rest } = qs.parse(this.location.search);
+    const { modal, ...rest } = qs.parse(this.store.location.search);
     const queryString = qs.stringify(rest);
 
-    const location = `${this.location.pathname}?${queryString}`;
+    const location = `${this.store.location.pathname}?${queryString}`;
     if (replace) {
-      this.replace(location);
+      this.store.replace(location);
     }
-    this.push(location);
+    this.store.push(location);
   }
 }

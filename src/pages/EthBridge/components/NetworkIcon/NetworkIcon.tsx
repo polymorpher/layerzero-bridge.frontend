@@ -1,7 +1,7 @@
 import React from 'react';
-import { Icon } from '../../../../components/Base';
-import { NETWORK_TYPE } from '../../../../stores/interfaces';
-import { networks } from '../../../../configs';
+import { Icon } from '@/components/Base';
+import { NETWORK_TYPE } from '@/stores/interfaces';
+import { networks } from '@/configs';
 
 interface Props {
   network: NETWORK_TYPE;

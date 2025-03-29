@@ -14,7 +14,7 @@ interface Props {
 export const TableRowMobile: React.FC<Props> = ({ data }) => {
   const hrc20Address =
     String(data.hrc20Address).toLowerCase() ===
-    String(process.env.ONE_HRC20).toLowerCase()
+    String(import.meta.env.VITE_ONE_HRC20).toLowerCase()
       ? String(data.hrc20Address).toLowerCase()
       : getChecksumAddress(data.hrc20Address);
 

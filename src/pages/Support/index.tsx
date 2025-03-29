@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Box } from 'grommet';
-import { Title, Text, Select } from 'components/Base';
+import { Title, Text, Select } from '@/components/Base';
 import * as styles from './faq-styles.styl';
-import { Icon } from 'components/Base/components/Icons';
+import { Icon } from '@/components/Base/components/Icons';
 import { TOKEN } from '../../stores/interfaces';
 import { LayoutCommon } from '../../components/Layouts/LayoutCommon/LayoutCommon';
 

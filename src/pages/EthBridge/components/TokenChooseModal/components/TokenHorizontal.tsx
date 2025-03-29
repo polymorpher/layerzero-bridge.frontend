@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box } from 'grommet/components/Box';
-import { Text } from '../../../../../components/Base';
+import { Text } from '@/components/Base';
 
 interface TokenHorizontalProps {
   className?: string;

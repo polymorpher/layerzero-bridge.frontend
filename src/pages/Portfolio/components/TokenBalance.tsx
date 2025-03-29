@@ -1,6 +1,6 @@
 import React from 'react';
 import { getAssetBalance } from '../utils';
-import utils from 'web3-utils';
+import * as utils from 'web3-utils';
 import { Text } from '../../../components/Base';
 import { ITokenInfo } from '../../../stores/interfaces';
 import { formatWithSixDecimals, formatWithTwoDecimals } from '../../../utils';
@@ -13,7 +13,7 @@ interface Props {
 
 export const TokenBalance: React.FC<Props> = ({ data, type }) => {
   const balance = getAssetBalance(data, type) || '0';
-  const hBalance = utils.fromWei(balance);
+  const hBalance = utils.fromWei(balance, 'ether');
   // @ts-ignore
   const usdBalance = hBalance * data.usdPrice;
 

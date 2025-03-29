@@ -1,14 +1,14 @@
 import React, { useCallback } from 'react';
 import { ApproveAmountField } from '../../../Exchange/ApproveAmountField/ApproveAmountField';
 import { observer } from 'mobx-react';
-import { useStores } from '../../../../stores';
+import { useStores } from '@/stores';
 import { Box } from 'grommet';
 import * as s from '../StepBASE/StepBASE.styl';
-import { Button, Text } from '../../../../components/Base';
+import { Button, Text } from '@/components/Base';
 import cn from 'classnames';
 import { ethBridgeStore } from '../../EthBridgeStore';
 import { Networks } from '../Networks/Networks';
-import { Divider } from '../../../../components/Divider/Divider';
+import { Divider } from '@/components/Divider/Divider';
 import { StepContainer } from '../StepContainer';
 
 interface Props {}

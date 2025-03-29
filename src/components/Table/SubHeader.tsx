@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Box } from 'grommet';
-import { Icon } from 'components/Base';
+import { Icon } from '@/components/Base';
 import styled from 'styled-components';
 import { isFilterApplied } from './utils/filters';
 

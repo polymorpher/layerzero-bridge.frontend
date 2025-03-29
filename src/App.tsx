@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { baseTheme } from 'themes';
+import { baseTheme } from './themes';
 import { GlobalStyle } from './GlobalStyle';
 import { Providers } from './Providers';
-import { Redirect, Route, Switch } from 'react-router';
+import { Routes, Route, Navigate } from 'react-router';
 import { ActionModals } from './components/ActionModals';
 import { EthBridge } from './pages/EthBridge';
 import { Explorer } from './pages/Explorer';
@@ -21,42 +21,36 @@ import { HelpPage } from './interfaces/NeedHelp';
 import { SupportPage } from './pages/Support';
 import { ModalReactRouter } from './modals/ModalReactRouter';
 
-export const App: React.FC = () => (
+const App: React.FC = () => (
   <Providers>
     <React.Suspense fallback={<div />}>
-      <Switch>
-        {process.env.GET_TOKENS_SERVICE === 'true' ? (
-          <Route exact path="/get-tokens" component={MintTokens} />
-        ) : null}
-        <Route exact path="/tokens" component={Tokens} />
-        <Route exact path="/itokens" component={IdentityTokens} />
-        <Route exact path="/tx-example" component={TransactionExample} />
-        <Route exact path="/hrc20-example" component={Hrc20ContractExample} />
-        <Route exact path="/faq" component={FAQPage} />
-        <Route exact path="/help" component={HelpPage} />
-        <Route exact path="/info" component={InfoPage} />
-        <Route exact path="/support" component={SupportPage} />
-        <Route exact path="/explorer/:validator?" component={Explorer} />
-        <Route exact path="/portfolio" component={Portfolio} />
-        <Route exact path="/stuck-operations" component={StuckOperations} />
-        <Route exact path="/admin-explorer" component={AdminExplorer} />
-        <Route
-          exact
-          path="/admin-explorer-full-history"
-          component={AdminExplorerFullHistory}
-        />
-        <Route exact path="/:token" component={EthBridge} />
-        <Route
-          exact
-          path="/:token/operations/:operationId"
-          component={EthBridge}
-        />
-        <Redirect to="/one" />
-      </Switch>
+      <Routes>
+        {import.meta.env.VITE_GET_TOKENS_SERVICE === 'true' && (
+          <Route path="/get-tokens" Component={MintTokens} />
+        )}
+        <Route path="/tokens" Component={Tokens} />
+        <Route path="/itokens" Component={IdentityTokens} />
+        <Route path="/tx-example" Component={TransactionExample} />
+        <Route path="/hrc20-example" Component={Hrc20ContractExample} />
+        <Route path="/faq" Component={FAQPage} />
+        <Route path="/help" Component={HelpPage} />
+        <Route path="/info" Component={InfoPage} />
+        <Route path="/support" Component={SupportPage} />
+        <Route path="/explorer/:validator?" Component={Explorer} />
+        <Route path="/portfolio" Component={Portfolio} />
+        <Route path="/stuck-operations" Component={StuckOperations} />
+        <Route path="/admin-explorer" Component={AdminExplorer} />
+        <Route path="/admin-explorer-full-history" Component={AdminExplorerFullHistory} />
+        <Route path="/:token" Component={EthBridge} />
+        <Route path="/:token/operations/:operationId" Component={EthBridge} />
+        <Route path="*" element={<Navigate to="/one" />} />
+      </Routes>
     </React.Suspense>
     <ActionModals />
     <ModalReactRouter />
     <InfoModal />
-    <GlobalStyle theme={...baseTheme as any} />
+    <GlobalStyle theme={baseTheme} />
   </Providers>
 );
+
+export default App

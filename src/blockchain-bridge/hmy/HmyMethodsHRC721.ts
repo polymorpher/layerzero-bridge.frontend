@@ -1,7 +1,7 @@
 import { Harmony } from '@harmony-js/core';
 import { Contract } from '@harmony-js/contract';
 import { connectToOneWallet } from './helpers';
-import { mulDecimals } from '../../utils';
+import * as tokenJson from '../out/MyERC721';
 import { getAddress } from '@harmony-js/crypto';
 
 interface IHmyMethodsInitParams {
@@ -14,7 +14,7 @@ export class HmyMethodsHRC721 {
   private hmy: Harmony;
   private hmyManagerContract: Contract;
   private options = {
-    gasPrice: Number(process.env.GAS_PRICE),
+    gasPrice: Number(import.meta.env.VITE_GAS_PRICE),
     gasLimit: 6721900,
   };
 
@@ -28,7 +28,6 @@ export class HmyMethodsHRC721 {
   }
 
   approveHmyManger = (hrc721Address, sendTxCallback?) => {
-    const tokenJson = require('../out/MyERC721');
     const hmyTokenContract = this.hmy.contracts.createContract(
       tokenJson.abi,
       hrc721Address,
@@ -92,7 +91,6 @@ export class HmyMethodsHRC721 {
   };
 
   tokenDetails = async erc721Address => {
-    const tokenJson = require('../out/MyERC721');
     const erc721Contract = this.hmy.contracts.createContract(
       tokenJson.abi,
       erc721Address,
@@ -106,7 +104,6 @@ export class HmyMethodsHRC721 {
   };
 
   balanceOf = async (erc721Address: string) => {
-    const tokenJson = require('../out/MyERC721');
     // @ts-ignore
     let { address } = await window.onewallet.getAccount();
     const hmyAddrHex = getAddress(address).checksum;
@@ -121,8 +118,6 @@ export class HmyMethodsHRC721 {
   };
 
   allowance = async (addr: string, erc721Address: string) => {
-    const tokenJson = require('../out/MyERC721');
-
     const hmyTokenContract = this.hmy.contracts.createContract(
       tokenJson.abi,
       erc721Address,

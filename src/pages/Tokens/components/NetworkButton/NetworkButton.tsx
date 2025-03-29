@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
 import { observer } from 'mobx-react';
 import * as s from './NetworkButton.styl';
-import { NETWORK_TYPE } from '../../../../stores/interfaces';
-import { Button } from '../../../../components/Base';
+import { NETWORK_TYPE } from '@/stores/interfaces';
+import { Button } from '@/components/Base';
 import cn from 'classnames';
-import { getNetworkIcon, getNetworkName } from '../../../../stores/names';
-import { ThemeContext } from '../../../../themes/ThemeContext';
+import { getNetworkIcon, getNetworkName } from '@/stores/names';
+import { ThemeContext } from '@/themes/ThemeContext';
 
 interface Props {
   type: NETWORK_TYPE | 'ALL';

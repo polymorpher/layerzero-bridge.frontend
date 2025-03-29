@@ -1,13 +1,13 @@
 import React, { useMemo, useState } from 'react';
-import { useStores } from '../../../../../stores';
-import { Input, isRequired } from '../../../../../components/Form';
+import { useStores } from '@/stores';
+import { Input, isRequired } from '@/components/Form';
 import * as s from '../../ENSTokenModal/ENSTokenModal.styl';
 import styled from 'styled-components';
 import { BridgeControl } from '../../BridgeControl/BridgeControl';
 import { observer } from 'mobx-react';
-import { isENSOwner } from '../../../../../utils';
-import { getTokenConfig } from '../../../../../configs';
-import { EXCHANGE_MODE } from '../../../../../stores/interfaces';
+import { isENSOwner } from '@/utils';
+import { getTokenConfig } from '@/configs';
+import { EXCHANGE_MODE } from '@/stores/interfaces';
 
 const BridgeControlStyled = styled(BridgeControl)`
   max-width: 180px;

@@ -1,4 +1,4 @@
-import { ITokenInfo, NETWORK_TYPE, TOKEN } from 'stores/interfaces';
+import { ITokenInfo, NETWORK_TYPE, TOKEN } from '@/stores/interfaces';
 
 // 1LINK token addresses
 export const tokensConfigs: ITokenInfo[] = [

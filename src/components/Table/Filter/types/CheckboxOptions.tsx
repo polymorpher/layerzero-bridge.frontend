@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { Box } from 'grommet';
 import { useState, useEffect } from 'react';
-// import { getProposalFilterOptions } from 'services/suggestionService';
-import { Icon, TextInput, Checkbox } from 'components/Base';
+// import { getProposalFilterOptions } from '@/services/suggestionService';
+import { Icon, TextInput, Checkbox } from '@/components/Base';
 import styled from 'styled-components';
 import { Spinner } from '../../Spinner';
 import { CommonFilterBodyProps } from './common';

@@ -1,6 +1,6 @@
 import React from 'react';
-import { useStores } from '../../../../stores';
-import { EXCHANGE_STEPS } from '../../../../stores/Exchange';
+import { useStores } from '@/stores';
+import { EXCHANGE_STEPS } from '@/stores/Exchange';
 import { StepBASE } from '../StepBASE/StepBASE';
 import { observer } from 'mobx-react';
 import { StepAPPROVE } from '../StepAPPROVE/StepAPPROVE';

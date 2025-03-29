@@ -3,8 +3,9 @@ import { getAddress } from '@harmony-js/crypto';
 import Web3 from 'web3';
 import { mulDecimals } from '../../utils';
 import { getGasPrice } from './helpers';
-
-const BN = require('bn.js');
+import * as MyERC721Json from '../out/MyERC721';
+import * as TokenManagerJson from '../out/NFTTokenManager';
+import BN from 'bn.js';
 
 export interface IEthMethodsInitParams {
   web3: Web3;
@@ -35,7 +36,6 @@ export class EthMethodsHRC721 {
   ) => {
     // @ts-ignore
     const accounts = await ethereum.enable();
-    const MyERC721Json = require('../out/MyERC721');
     const erc721Contract = new this.web3.eth.Contract(
       MyERC721Json.abi,
       erc721Address,
@@ -51,7 +51,7 @@ export class EthMethodsHRC721 {
         .setApprovalForAll(this.ethManagerAddress, true)
         .send({
           from: accounts[0],
-          gas: process.env.ETH_GAS_LIMIT,
+          gas: import.meta.env.VITE_ETH_GAS_LIMIT,
           gasPrice: await getGasPrice(this.web3),
         })
         .on('transactionHash', hash => sendTxCallback(hash));
@@ -78,7 +78,7 @@ export class EthMethodsHRC721 {
 
     const gasLimit = Math.max(
       estimateGas + estimateGas * 0.3,
-      Number(process.env.ETH_GAS_LIMIT),
+      Number(import.meta.env.VITE_ETH_GAS_LIMIT),
     );
     let transaction = await this.ethManagerContract.methods
       .burnTokens(hrc721AddressHex, amount, hmyAddrHex)
@@ -93,7 +93,6 @@ export class EthMethodsHRC721 {
   };
 
   checkEthBalance = async (erc721Address, addr) => {
-    const MyERC721Json = require('../out/MyERC721');
     const erc721Contract = new this.web3.eth.Contract(
       MyERC721Json.abi,
       erc721Address,
@@ -107,7 +106,6 @@ export class EthMethodsHRC721 {
       throw new Error('Invalid token address');
     }
 
-    const MyERC721Json = require('../out/MyERC721');
     const erc721Contract = new this.web3.eth.Contract(
       MyERC721Json.abi,
       erc721Address,
@@ -129,8 +127,6 @@ export class EthMethodsHRC721 {
       throw new Error('Invalid token address');
     }
 
-    const TokenManagerJson = require('../out/NFTTokenManager');
-
     const tokenManager = new this.web3.eth.Contract(
       TokenManagerJson.abi,
       this.ethTokenManagerAddress,
@@ -142,7 +138,6 @@ export class EthMethodsHRC721 {
   };
 
   totalSupply = async hrc721Address => {
-    const MyERC721Json = require('../out/MyERC721');
     const erc721Contract = new this.web3.eth.Contract(
       MyERC721Json.abi,
       hrc721Address,
@@ -155,8 +150,6 @@ export class EthMethodsHRC721 {
     if (!this.web3.utils.isAddress(erc721Address)) {
       throw new Error('Invalid token address');
     }
-
-    const MyERC721Json = require('../out/MyERC721');
 
     const erc721Contract = new this.web3.eth.Contract(
       MyERC721Json.abi,

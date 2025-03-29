@@ -3,7 +3,9 @@ import { getAddress } from '@harmony-js/crypto';
 import Web3 from 'web3';
 import { mulDecimals } from '../../utils';
 import { getGasPrice } from './helpers';
-const BN = require('bn.js');
+import BN from 'bn.js';
+import * as MyERC20Json from '../out/MyERC20';
+import * as TokenManagerJson from '../out/TokenManager';
 
 export interface IEthMethodsInitParams {
   web3: Web3;
@@ -44,7 +46,6 @@ export class EthMethodsHRC20 {
       return;
     }
 
-    const MyERC20Json = require('../out/MyERC20');
     const erc20Contract = new this.web3.eth.Contract(
       MyERC20Json.abi,
       erc20Address,
@@ -54,7 +55,7 @@ export class EthMethodsHRC20 {
       .approve(this.ethManagerAddress, mulDecimals(amount, decimals))
       .send({
         from: accounts[0],
-        gas: process.env.ETH_GAS_LIMIT,
+        gas: import.meta.env.VITE_ETH_GAS_LIMIT,
         gasPrice: this.gasPrice ? this.gasPrice : await getGasPrice(this.web3),
       })
       .on('transactionHash', hash => sendTxCallback(hash));
@@ -81,7 +82,7 @@ export class EthMethodsHRC20 {
 
     const gasLimit = Math.max(
       estimateGas + estimateGas * 0.3,
-      Number(process.env.ETH_GAS_LIMIT),
+      Number(import.meta.env.VITE_ETH_GAS_LIMIT),
     );
 
     let transaction = await this.ethManagerContract.methods
@@ -97,7 +98,6 @@ export class EthMethodsHRC20 {
   };
 
   checkEthBalance = async (erc20Address: string, addr: string) => {
-    const MyERC20Json = require('../out/MyERC20');
     const erc20Contract = new this.web3.eth.Contract(
       MyERC20Json.abi,
       erc20Address,
@@ -111,7 +111,6 @@ export class EthMethodsHRC20 {
       throw new Error('Invalid token address');
     }
 
-    const MyERC20Json = require('../out/MyERC20');
     const erc20Contract = new this.web3.eth.Contract(
       MyERC20Json.abi,
       erc20Address,
@@ -133,8 +132,6 @@ export class EthMethodsHRC20 {
       throw new Error('Invalid token address');
     }
 
-    const TokenManagerJson = require('../out/TokenManager');
-
     const tokenManager = new this.web3.eth.Contract(
       TokenManagerJson.abi,
       this.ethTokenManagerAddress,
@@ -152,7 +149,6 @@ export class EthMethodsHRC20 {
   };
 
   totalSupply = async hrc20Address => {
-    const MyERC20Json = require('../out/MyERC20');
     const erc20Contract = new this.web3.eth.Contract(
       MyERC20Json.abi,
       hrc20Address,
@@ -166,7 +162,6 @@ export class EthMethodsHRC20 {
       throw new Error('Invalid token address');
     }
 
-    const MyERC20Json = require('../out/MyERC20');
 
     const erc20Contract = new this.web3.eth.Contract(
       MyERC20Json.abi,

@@ -3,7 +3,8 @@ import { getAddress } from '@harmony-js/crypto';
 import Web3 from 'web3';
 import { mulDecimals } from '../../utils';
 import { getGasPrice } from './helpers';
-const BN = require('bn.js');
+import BN from 'bn.js';
+import * as EthManagerJson from '../out/EthManager';
 
 export interface IEthMethodsInitParams {
   web3: Web3;
@@ -40,7 +41,7 @@ export class EthMethods {
       .approve(this.ethManagerAddress, mulDecimals(amount, 18))
       .send({
         from: accounts[0],
-        gas: process.env.ETH_GAS_LIMIT,
+        gas: import.meta.env.VITE_ETH_GAS_LIMIT,
         gasPrice: await getGasPrice(this.web3),
       })
       .on('transactionHash', hash => sendTxCallback(hash));
@@ -60,7 +61,7 @@ export class EthMethods {
 
     const gasLimit = Math.max(
       estimateGas + estimateGas * 0.3,
-      Number(process.env.ETH_GAS_LIMIT),
+      Number(import.meta.env.VITE_ETH_GAS_LIMIT),
     );
 
     let transaction = await this.ethManagerContract.methods
@@ -93,21 +94,19 @@ export class EthMethods {
     //
     // const gasLimit = Math.max(
     //   estimateGas + estimateGas * 0.3,
-    //   Number(process.env.ETH_GAS_LIMIT),
+    //   Number(import.meta.env.VITE_ETH_GAS_LIMIT),
     // );
-
-    const EthManagerJson = require('../out/EthManager');
 
     const managerContract = new this.web3.eth.Contract(
       EthManagerJson.abi,
-      process.env.ETH_MANAGER_CONTRACT,
+      import.meta.env.VITE_ETH_MANAGER_CONTRACT,
     );
 
     let response = await managerContract.methods
       .lockEth(mulDecimals(amount, 18), hmyAddrHex)
       .send({
         from: accounts[0],
-        gas: process.env.ETH_GAS_LIMIT,
+        gas: import.meta.env.VITE_ETH_GAS_LIMIT,
         gasPrice: await getGasPrice(this.web3),
         value: mulDecimals(amount, 18),
       })

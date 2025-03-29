@@ -1,6 +1,6 @@
 import { ITokenInfo, NETWORK_TYPE } from './interfaces';
 import { IStores } from './index';
-import * as services from 'services';
+import * as services from '@/services';
 import { ListStoreConstructor } from './core/ListStoreConstructor';
 import { computed, observable } from 'mobx';
 import * as _ from 'lodash';
@@ -39,7 +39,7 @@ export class Tokens extends ListStoreConstructor<ITokenInfo> {
             if (
               t.symbol === '1ONE' &&
               String(t.hrc20Address).toLowerCase() !==
-                String(process.env.ONE_HRC20).toLowerCase()
+                String(import.meta.env.VITE_ONE_HRC20).toLowerCase()
             ) {
               return false;
             }
@@ -48,7 +48,7 @@ export class Tokens extends ListStoreConstructor<ITokenInfo> {
               t.symbol === 'ONE' &&
               hasAddress(t) &&
               String(t.hrc20Address).toLowerCase() !==
-                String(process.env.ONE_HRC20).toLowerCase()
+                String(import.meta.env.VITE_ONE_HRC20).toLowerCase()
             ) {
               return false;
             }

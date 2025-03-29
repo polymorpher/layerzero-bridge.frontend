@@ -9,9 +9,17 @@ import { EthMethodsHRC721 } from './EthMethodsHRC721';
 import { EthMethodsHRC1155 } from './EthMethodsHRC1155';
 import { EthMethodsERC1155 } from './EthMethodsERC1155';
 import { networks } from '../../configs';
+import * as ERC20Json from '../out/MyERC20';
+import * as LINKEthManagerJson from '../out/LINKEthManager';
+import * as ethManagerErc20Json from '../out/EthManagerERC20';
+import * as ethManagerHrc20Json from '../out/EthManagerHRC20';
+import * as ethManagerERC721Json from '../out/ERC721EthManager';
+import * as ethManagerHRC721Json from '../out/NFTEthManager';
+import * as ethManagerHRC1155Json from '../out/HRC1155EthManager';
+import * as ethManagerERC1155Json from '../out/ERC1155EthManager';
 
 // @ts-ignore
-const web3URL = window.ethereum ? window.ethereum : process.env.ETH_NODE_URL;
+const web3URL = window.ethereum ? window.ethereum : import.meta.env.VITE_ETH_NODE_URL;
 
 export interface INetworkMethods {
   web3: Web3;
@@ -30,27 +38,23 @@ export interface INetworkMethods {
 export const initNetwork = (config: TConfig, url?: string): INetworkMethods => {
   const web3 = new Web3(url || web3URL);
 
-  const ethBUSDJson = require('../out/MyERC20');
   const ethBUSDContract = new web3.eth.Contract(
-    ethBUSDJson.abi,
+    ERC20Json.abi,
     config.contracts.busd,
   );
 
-  const ethBUSDManagerJson = require('../out/LINKEthManager');
   const ethBUSDManagerContract = new web3.eth.Contract(
-    ethBUSDManagerJson.abi,
+    LINKEthManagerJson.abi,
     config.contracts.busdManager,
   );
 
-  const ethLINKJson = require('../out/MyERC20');
   const ethLINKContract = new web3.eth.Contract(
-    ethLINKJson.abi,
+    ERC20Json.abi,
     config.contracts.link,
   );
 
-  const ethLINKManagerJson = require('../out/LINKEthManager');
   const ethLINKManagerContract = new web3.eth.Contract(
-    ethLINKManagerJson.abi,
+    LINKEthManagerJson.abi,
     config.contracts.linkManager,
   );
 
@@ -68,37 +72,31 @@ export const initNetwork = (config: TConfig, url?: string): INetworkMethods => {
     ethManagerAddress: config.contracts.linkManager,
   });
 
-  const ethManagerJson = require('../out/EthManagerERC20');
   const ethManagerContract = new web3.eth.Contract(
-    ethManagerJson.abi,
+    ethManagerErc20Json.abi,
     config.contracts.erc20Manager,
   );
 
-  const ethManagerJsonHrc20 = require('../out/EthManagerHRC20');
   const ethManagerContractHrc20 = new web3.eth.Contract(
-    ethManagerJsonHrc20.abi,
+    ethManagerHrc20Json.abi,
     config.contracts.hrc20Manager,
   );
 
-  const ethManagerERC721Json = require('../out/ERC721EthManager');
   const ethManagerContractERC721 = new web3.eth.Contract(
     ethManagerERC721Json.abi,
     config.contracts.erc721Manager,
   );
 
-  const ethManagerHRC721Json = require('../out/NFTEthManager');
   const ethManagerContractHRC721 = new web3.eth.Contract(
     ethManagerHRC721Json.abi,
     config.contracts.hrc721Manager,
   );
 
-  const ethManagerHRC1155Json = require('../out/HRC1155EthManager');
   const ethManagerContractHRC1155 = new web3.eth.Contract(
     ethManagerHRC1155Json.abi,
     config.contracts.hrc1155Manager,
   );
 
-  const ethManagerERC1155Json = require('../out/ERC1155EthManager');
   const ethManagerContractERC1155 = new web3.eth.Contract(
     ethManagerERC1155Json.abi,
     config.contracts.erc1155Manager,

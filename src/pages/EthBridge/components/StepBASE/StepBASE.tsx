@@ -4,21 +4,21 @@ import { NetworkRow } from './components/NetworkRow/NetworkRow';
 import { TokenRow } from './components/TokenRow/TokenRow';
 import { Box } from 'grommet';
 import { Destination } from './components/Destination/Destination';
-import { Button } from '../../../../components/Base';
+import { Button } from '@/components/Base';
 import { ethBridgeStore } from '../../EthBridgeStore';
-import { useStores } from '../../../../stores';
+import { useStores } from '@/stores';
 import { observer } from 'mobx-react';
-import { Divider } from '../../../../components/Divider/Divider';
-import { ModalIds, ModalRegister } from '../../../../modals';
+import { Divider } from '@/components/Divider/Divider';
+import { ModalIds, ModalRegister } from '@/modals';
 import { autorun } from 'mobx';
-import { EXCHANGE_MODE, TOKEN } from '../../../../stores/interfaces';
+import { EXCHANGE_MODE, TOKEN } from '@/stores/interfaces';
 import { StepContainer } from '../StepContainer';
 import { WalletNetworkWarn } from './components/WalletNetworkWarn';
 import { SwitchNetworkButton } from '../SwitchNetworkButton';
-import { MetamaskButton } from '../../../../components/MetamaskButton';
+import { MetamaskButton } from '@/components/MetamaskButton';
 import { ENSTokenModal } from '../ENSTokenModal/ENSTokenModal';
 import { TokenChooseModal } from '../TokenChooseModal/TokenChooseModal';
-import { getTokenConfig } from '../../../../configs';
+import { getTokenConfig } from '@/configs';
 
 interface Props { }
 

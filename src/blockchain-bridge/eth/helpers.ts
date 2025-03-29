@@ -1,7 +1,7 @@
 import * as agent from 'superagent';
 import Web3 from 'web3';
 import { divDecimals, mulDecimals } from '../../utils';
-const BN = require('bn.js');
+import BN from 'bn.js';
 
 export const getGasPrice = async (web3: Web3) => {
   const gasPrice = new BN(await web3.eth.getGasPrice()).mul(new BN(1));
@@ -10,7 +10,7 @@ export const getGasPrice = async (web3: Web3) => {
 
   try {
     const info = await agent.get(
-      `https://data-api.defipulse.com/api/v1/egs/api/ethgasAPI.json?api-key=${process.env.ETH_GAS_API_KEY}`,
+      `https://data-api.defipulse.com/api/v1/egs/api/ethgasAPI.json?api-key=${import.meta.env.VITE_ETH_GAS_API_KEY}`,
     );
 
     gasPriceApi = mulDecimals(info.body.average, 8);

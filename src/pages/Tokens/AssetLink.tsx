@@ -37,7 +37,7 @@ export const AssetLink: React.FC<Props> = ({ data, type }) => {
   } else {
     const address =
       String(data.hrc20Address).toLowerCase() ===
-      String(process.env.ONE_HRC20).toLowerCase()
+      String(import.meta.env.VITE_ONE_HRC20).toLowerCase()
         ? String(data.hrc20Address).toLowerCase()
         : getChecksumAddress(data.hrc20Address);
 

@@ -106,6 +106,8 @@ export class MobxForm<T = {}> extends React.Component<IMobxFormProps & T, any> {
   };
 
   @observable public _store = {};
+  @observable public store = {};
+  @observable public isEditable: boolean | undefined = undefined;
   @observable public errors = new Map<string, IErrorField[]>();
   @observable public fieldOptions = new Map<string, IFieldOptions>();
   @observable public fieldTouched = new Map<string, boolean>();
@@ -119,9 +121,9 @@ export class MobxForm<T = {}> extends React.Component<IMobxFormProps & T, any> {
     return Array.from(this.fieldOptions.keys());
   }
 
-  @computed
-  get store() {
-    return this.props.data || this._store;
+  componentDidMount() {
+    this.store = this.props.data || this._store
+    this.isEditable = this.props.editable
   }
 
   public getChildContext(): any {
@@ -148,11 +150,6 @@ export class MobxForm<T = {}> extends React.Component<IMobxFormProps & T, any> {
   @autobind
   public getFieldsError(): Map<string, IErrorField[]> {
     return toJS(this.errors);
-  }
-
-  @autobind
-  public isEditable(): boolean {
-    return this.props.editable;
   }
 
   @autobind
@@ -195,7 +192,7 @@ export class MobxForm<T = {}> extends React.Component<IMobxFormProps & T, any> {
       ...appendProps,
       ...otherProps,
     };
-    if (!this.isEditable()) {
+    if (!this.isEditable) {
       props.disabled = true;
     }
     if (validateTrigger !== trigger) {
@@ -211,6 +208,9 @@ export class MobxForm<T = {}> extends React.Component<IMobxFormProps & T, any> {
 
   @action.bound
   public removeField(name: string) {
+    if (!this) {
+      return
+    }
     this.fieldOptions.delete(name);
     this.fieldTouched.delete(name);
   }
@@ -335,7 +335,7 @@ export class MobxForm<T = {}> extends React.Component<IMobxFormProps & T, any> {
   public createHandler({ name, onChange }: any) {
     return (e: any) => {
       const value = getValueFromEvent(e);
-      if (this.isEditable()) {
+      if (this.isEditable) {
         if (onChange) {
           onChange(value);
         }

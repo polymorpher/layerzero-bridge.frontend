@@ -1,13 +1,13 @@
 import React, { useCallback, useMemo } from 'react';
-import { Icon, Text } from '../../../../../../components/Base';
+import { Icon, Text } from '@/components/Base';
 import { BridgeControl } from '../../../BridgeControl/BridgeControl';
 import { Button } from 'grommet/components/Button';
 import { Box } from 'grommet';
-import { useStores } from '../../../../../../stores';
-import { ModalIds } from '../../../../../../modals';
+import { useStores } from '@/stores';
+import { ModalIds } from '@/modals';
 import { observer } from 'mobx-react';
-import { TOKEN } from '../../../../../../stores/interfaces';
-import { isMultiNFT, isNFT } from '../../../../../../stores/Exchange/helpers';
+import { TOKEN } from '@/stores/interfaces';
+import { isMultiNFT, isNFT } from '@/stores/Exchange/helpers';
 
 interface Props {}
 
