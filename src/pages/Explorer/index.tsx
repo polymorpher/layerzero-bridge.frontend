@@ -19,16 +19,19 @@ import { ExpandIcon } from '../../components/Table/ExpandIcon/ExpandIcon';
 import { CheckboxButton } from '../../components/Base/components/Inputs/types/CheckboxButton';
 import { IOperation } from '../../stores/interfaces';
 import { TableRowMobile } from './TableRowMobile';
+import { useParams } from 'react-router';
 
 export const Explorer = observer((props: any) => {
   const { operations, user, tokens, userMetamask } = useStores();
-  const validator = props.match.params.validator || 0;
+  const params = useParams()
+  
+  const validator = params.validator || 0;
 
   const [expandedRowKeys, setExpandedRowKeys] = useState([]);
   const [columns, setColumns] = useState(getColumns({ user }));
 
   useEffect(() => {
-    const validator = props.match.params.validator || 0;
+    const validator = params.validator || 0;
 
     operations.validatorUrl = validators[validator] || validators[0];
 
